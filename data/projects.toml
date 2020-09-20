@@ -1,0 +1,14 @@
+[[list]]
+name = "nanzhong/workstation"
+url = "https://github.com/nanzhong/workstation"
+description = "My declarative development environment"
+
+[[list]]
+name = "nanzhong/tester"
+url = "https://github.com/nanzhong/tester"
+description = "Test runner and reporting framework"
+
+[[list]]
+name = "nanzhong/oktaauth"
+url = "https://github.com/nanzhong/oktaauth"
+description = "net/http compatible drop in Okta auth handler"

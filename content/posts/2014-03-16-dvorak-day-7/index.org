@@ -1,0 +1,11 @@
+#+TITLE: Dvorak - Day 7
+#+DATE: 2014-03-16 06:35:12 -0400
+#+TAGS[]: dvorak
+
+Another full day using DVORAK and I have to say thay my wrist problems that I wanted to solve are now gone. Although I'm not too sure whether it's due to switching layouts or the drop in raw typing speed, I guess I will find out as I continue to improve.
+
+Starting today I will start posting progress updates every 10th day as my transitioning to DVORAK is more or less complete.
+
+QWERTY - *60* WPM
+DVORAK - *40* WPM
+y

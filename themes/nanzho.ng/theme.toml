@@ -1,0 +1,7 @@
+name = "nanzho.ng"
+description = "Hugo theme for https://nanzho.ng."
+homepage = "https://github.com/nanzhong/nanzho.ng"
+
+[author]
+name = "Nan Zhong"
+homepage = "https://github.com/nanzhong"

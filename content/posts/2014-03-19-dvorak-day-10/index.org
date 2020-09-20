@@ -1,0 +1,14 @@
+#+TITLE: Dvorak - Day 10
+#+DATE: 2014-03-19 02:08:57 -0400
+#+TAGS[]: dvorak
+
+I can't believe that it's only been a little over a week since I started taking the dive into DVORAK. While I am still frustrated when I use it, I think I've made enough progress to justify sticking with it.
+
+The best part of the switch is that my pain is gone. Apart from that, the second best thing is that I actually have proper touch typing form; this may seem kind of weird, but being a self-taughty QWERTY typist, I never typed with my fingers properly hitting the keys that they are supposed to. I just "knew" where things were; while this worked well since I had developed enough muscle memory to be able to completely rely on it for regular day-to-day stuff, but the instant I hit an uncommonly used symbol like ^ I would most likely mess up and have to take a look at the keyboard. Now, having learned DVORAK and touch typing properly, I no longer have this problem, albeit I'm much slower than before.
+
+Frustration is the only downside I've experienced so far. Losing more than half of my typing speed makes everything a test of patience and that really sucks. When you are by yourself it's better, but as a programmer, when you are working with other people, having a significant delay in your ability to express your thoughts on the computer is not only extremely embarassing, but also very unproductive. I know that this will only get better with time, but having to endure the temptation of just falling back to QWERTY really is very testing.
+
+Apart from just using DVORAK on a daily basis, I also try and get in as much practice as I can on [[http://typeracer.com][typeracer]], to test my raw speed, and on [[http://dvorak.nl][dvorak.nl]], to focus on accuracy. Currently with my accuracy at only around 87%, it is my largest problem. The main issue is mixed up muscle memory from QWERTY and getting ahead of myself and losing coordination between left and right hands resulting in out of order characters. I'm trying to purposely slow down to focus on accuracy, and hopefully this will help me improve.
+
+QWERTY - *36* WPM (I can no longer properly touch type and have to frequently look down)
+DVORAK - *45* WPM

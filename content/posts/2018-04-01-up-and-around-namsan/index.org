@@ -1,0 +1,22 @@
+#+TITLE: Up and around Namsan
+#+DATE: 2018-04-01 21:25:12 +0900
+#+TAGS[]: travel photos seoul korea
+
+{{< img 9I3A0846.jpg "Happiness, health, peace" >}}
+{{< img 9I3A0718.jpg "Antoine" >}}
+{{< img 9I3A0733.jpg "Fast food" >}}
+{{< img 9I3A0739.jpg "Street" >}}
+{{< img 9I3A0745.jpg "What are you looking at?" >}}
+{{< img 9I3A0754.jpg "Up" >}}
+{{< img 9I3A0787.jpg "Sheep" >}}
+{{< img 9I3A0790.jpg "Back alley" >}}
+{{< img 9I3A0800.jpg "Happy bus" >}}
+{{< img 9I3A0810.jpg "Forest" >}}
+{{< img 9I3A0817.jpg "Rocks" >}}
+{{< img 9I3A0832.jpg "N Seoul Tower" >}}
+{{< img 9I3A0857.jpg "Mailbox" >}}
+{{< img 9I3A0864.jpg "Panda" >}}
+{{< img 9I3A0870.jpg "Trees" >}}
+{{< img 9I3A0875.jpg "Selfie" >}}
+{{< img 9I3A0886.jpg "Candy" >}}
+{{< img 9I3A0901.jpg "Elevenses" >}}

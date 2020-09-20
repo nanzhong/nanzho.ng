@@ -1,0 +1,21 @@
+#+TITLE: Gyeongbokgung
+#+DATE: 2018-04-02 22:10:35 +0900
+#+TAGS[]: travel photos seoul korea
+
+{{< img 9I3A1071.jpg "Shrine" >}}
+{{< img 9I3A0947.jpg "Cherry blossoms" >}}
+{{< img 9I3A0950.jpg "Cherry blossoms" >}}
+{{< img 9I3A0954.jpg "Posing for a photo" >}}
+{{< img 9I3A0965.jpg "Gate" >}}
+{{< img 9I3A0970.jpg "Gate" >}}
+{{< img 9I3A0975.jpg "Girl in traditional clothing" >}}
+{{< img 9I3A0993.jpg "Gate" >}}
+{{< img 9I3A1007.jpg "Busy day for tourists" >}}
+{{< img 9I3A1017.jpg "Intricate details" >}}
+{{< img 9I3A1019.jpg "Intricate details" >}}
+{{< img 9I3A1025.jpg "Looking up" >}}
+{{< img 9I3A1037.jpg "On the water" >}}
+{{< img 9I3A1056.jpg "Empress' residence" >}}
+{{< img 9I3A1057.jpg "Zodiac snake" >}}
+{{< img 9I3A1060.jpg "Pagoda" >}}
+{{< img 9I3A1075.jpg "Graves" >}}

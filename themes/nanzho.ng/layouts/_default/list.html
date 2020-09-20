@@ -1,0 +1,28 @@
+{{ define "title" }}
+{{ .Page.Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ .Content }}
+
+{{/* maybe re-add the tag cloud at some point */}}
+{{ if false }}
+<h3>Tags</h3>
+<span class="widget tagcloud">
+  {{ $allRegularPagesCount := len .Site.RegularPages }}
+  {{ range $elem := .Site.Taxonomies.tags.Alphabetical }}
+  <a style="font-size: {{ (add 0.5 (mul 2 (div (float $elem.Count) $allRegularPagesCount))) }}rem;" href="{{ $elem.Page.Permalink }}">
+    {{- .Page.Title -}}
+  </a>
+  {{ end }}
+</span>
+{{ end }}
+
+<ul>
+  {{ range .Pages }}
+  <li>
+    [{{.Date.Format "2006-01-02"}}] <a href="{{.Permalink}}">{{.Title}}</a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

@@ -13,8 +13,19 @@
 </ul>
 
 <h2>Projects</h2>
+
+<h3>Professional</h3>
 <ul>
-  {{ range .Site.Data.projects.list }}
+  {{ range .Site.Data.projects.professional }}
+  <li>
+    <a href="{{.url}}">{{ .name }}</a> - {{ .description }}
+  </li>
+  {{ end }}
+</ul>
+
+<h3>Personal</h3>
+<ul>
+  {{ range .Site.Data.projects.personal }}
   <li>
     <a href="{{.url}}">{{ .name }}</a> - {{ .description }}
   </li>

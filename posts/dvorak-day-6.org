@@ -1,0 +1,8 @@
+#+TITLE: Dvorak - Day 6
+#+DATE: <2014-03-15 05:03:20 -0400>
+#+FILETAGS: :dvorak:
+
+I used DVORAK exclusively today, and while I was extremely slow and error prone, I definitely feel more comfortable now. There is still a long way to go before I'm comfortable and fast enough with it but I'm definitely seeing progress, which is highly motivating.
+
+QWERTY: *60* WPM
+DVORAK: *36* WPM

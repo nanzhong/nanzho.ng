@@ -1,0 +1,13 @@
+#+TITLE: Dvorak - Day 20
+#+DATE: <2014-03-29 04:04:11 -0400>
+#+FILETAGS: :dvorak:
+
+Ten days ago the only real remaining issue I was struggling with was frustration. That's pretty much gone now; either I've gotten so used to being slow that it no longer bothers me, or I've gotten much faster. Considering that my speed hasn't really changed sitting pretty steady at
+
+DVORAK - *50* WPM
+
+it must just be me getting too used to being slow.
+
+During these past few days, I've made a few interesting observations. First, accuracy is much more useful than speed, and that it really is so much easier to copy text than it is to write new stuff. I've also experienced brief moments were I completely forgot QWERTY and was typing at 60 WPM completely using muscle memory.
+
+I'm also really glad that [[http://massdrop.com][Massdrop]] stared another [[http://massdrop.com/buy/ergodox][Ergodox]]. I'm committed and can't wait to get it. While I haven't done any soldering in like 6 years since highschool, I'm pretty confident that it will work out.

@@ -1,0 +1,10 @@
+#+TITLE: Dvorak - Day 4
+#+DATE: <2014-03-13 03:57:09 -0400>
+#+FILETAGS: :dvorak:
+
+Today marks the first day that I seem to have started developping muscle memory for DVORAK. Not only am I having to think less and less about where keys are, but I'm also starting to type shorter words almost completely based off of reflex. As a result of this my QWERTY seem to have suffered a signifcant drop in speed. In particular, I'm having a ton of problems typing punctuation correctly in QWERTY; I keep typing W for , and E for .
+
+QWERTY - *60* WPM
+DVORAK - *35* WPM
+
+An interesting note is that not thinking about the letters in the word and just going with the flow seems to help an immense amount once you've fully memorized the new keyboard layout.

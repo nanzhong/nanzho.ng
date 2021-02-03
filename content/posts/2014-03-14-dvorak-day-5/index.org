@@ -1,8 +1,0 @@
-#+TITLE: Dvorak - Day 5
-#+DATE: 2014-03-14 04:00:51 -0400
-#+TAGS[]: dvorak
-
-I have not noticed any changes in my typing speeds today. The only observation of note is that as soon as I look at the keyboard when typing QWERTY, I instantly blank out and cannot remember where keys are supposed to be. I attribute this to still relying too heavily on memorization when typing DVORAK.
-
-QWERTY - *60* WPM
-DVORAK - *35* WPM

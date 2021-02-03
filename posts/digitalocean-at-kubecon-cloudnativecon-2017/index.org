@@ -1,0 +1,15 @@
+#+TITLE: DigitalOcean at KubeCon + CloudNativeCon 2017
+#+DATE: <2017-12-06 22:17:13 -0600>
+#+FILETAGS: :photos:digitalocean:travel:tech:kubernetes:cncf:
+
+[[file:9I3A9693.jpg]]
+[[file:9I3A9852.jpg]]
+[[file:9I3A9714.jpg]]
+[[file:9I3A9698.jpg]]
+[[file:9I3A9708.jpg]]
+[[file:9I3A9828.jpg]]
+[[file:9I3A9880.jpg]]
+[[file:9I3A9799.jpg]]
+[[file:9I3A9904.jpg]]
+[[file:9I3A9935.jpg]]
+[[file:9I3A9980.jpg]]

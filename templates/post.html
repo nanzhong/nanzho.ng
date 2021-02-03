@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} - {{ post.title }}{% endblock %}
+
+{% block og %}
+<meta name="og:title" content="{{ post.title }}"></meta>
+<meta name="og:url" content="{{ url_for("posts", slug=post.slug) }}"></meta>
+{% endblock %}
+
+{% block twitter %}
+<meta name="twitter:title" content="{{ post.title }}"></meta>
+{% endblock %}
+
+{% block main %}
+<h1>{{ post.title }}</h1>
+<div class="meta">
+  {{ post.date | strftime("%Y-%m-%d") }} | {{ post.filetags }}
+</div>
+
+{{ post.html | safe}}
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = '{{ url_for("posts", slug=post.slug) }}';
+    this.page.identifier = '{{ post.slug }}';
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{{ disqus_shortname }}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+{% endblock %}

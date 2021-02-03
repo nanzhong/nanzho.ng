@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} - {{ name }}{% endblock %}
+
+{% block main %}
+<h1>{{ name }}</h1>
+
+My thoughts and opinions on life, work, and everything in between.
+
+<h2>Recent Posts</h2>
+<ul>
+  {% for post in posts %}
+  <li>
+    [{{ post.date | strftime("%Y-%m-%d") }}] <a href="{{ url_for("posts", slug=post.slug) }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Projects</h2>
+
+<h3>Professional</h3>
+<ul>
+  {% for project in projects.professional %}
+  <li>
+    <a href="{{ project.url }}">{{ project.name }}</a> - {{ project.desc }}
+  </li>
+  {% endfor %}
+</ul>
+
+<h3>Personal</h3>
+<ul>
+  {% for project in projects.personal %}
+  <li>
+    <a href="{{ project.url }}">{{ project.name }}</a> - {{ project.desc }}
+  </li>
+  {% endfor %}
+</ul>
+
+<br>
+<strong>Have a nice day!</strong>
+{% endblock %}

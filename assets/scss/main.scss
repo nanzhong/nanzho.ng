@@ -1,0 +1,212 @@
+@import 'font';
+@import 'syntax';
+
+html {
+    background-color: #171A1C;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Iosevka Custom', monospace;
+    color: #d9e0e4;
+}
+
+body, p, h1, h2, h3, h4, h5, h6 {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+p {
+    display: inline-block;
+    margin: 5px 0;
+}
+
+a {
+    color: #afce15;
+}
+
+ul, ol {
+    li {
+        p {
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+header, main, footer {
+    margin: 0 auto;
+    width: 300px;
+
+    @media (min-width: 576px) {
+        width: 500px;
+    }
+
+    @media (min-width: 768px) {
+        width: 700px;
+    }
+}
+
+header {
+    padding: 10px 0;
+    border-bottom: 1px solid #fff500;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            margin: 0;
+
+            a {
+                color: #93c560;
+                font-weight: bold;
+            }
+        }
+        li:after {
+            content: ' ';
+        }
+
+        li:first-child:after {
+            content: ' |';
+        }
+    }
+}
+
+main {
+    margin: 10px auto;
+
+    h1, h2, h3, h4, h5, h6 {
+        position: relative;
+        margin: 5px 0;
+    }
+
+    h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+        position: absolute;
+        box-sizing: border-box;
+        padding-right: 5px;
+        text-align: right;
+        color: #63696d;
+    }
+
+    h2:before {
+        left: -10px;
+        width: 10px;
+        content: "*"
+    }
+
+    h3:before {
+        left: -20px;
+        width: 20px;
+        content: "**"
+    }
+
+    h4:before {
+        left: -30px;
+        width: 30px;
+        content: "***"
+    }
+
+    h5:before {
+        left: -40px;
+        width: 40px;
+        content: "****"
+    }
+
+    h6:before {
+        left: -50px;
+        width: 50px;
+        content: "*****"
+    }
+
+    .meta {
+        margin: 5px 0;
+        color: #63696d;
+
+        ul.tags {
+            display: inline;
+            list-style-type: none;
+
+            li {
+                display: inline;
+
+                a {
+                    color: #63696d;
+                }
+            }
+
+            li:before {
+                content: '#';
+            }
+
+            li:after {
+                content: ' ';
+            }
+        }
+
+        ul.tags:before {
+            content: " | "
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li:before {
+            color: #63696d;
+            content: "- "
+        }
+    }
+
+    ol {
+        margin: 0;
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    img {
+        padding: 5px;
+        margin: 0 auto;
+        max-width: 100%;
+        background-color: #1C1F22;
+        border: 1px solid #343A40;
+    }
+
+    div.org-src-container {
+        overflow-x: scroll;
+        padding: 5px 5px 5px 20px;
+        border-left: 5px solid #343A40;
+
+        pre {
+            font-family: 'Iosevka Custom', monospace;
+            margin: 5px;
+        }
+    }
+
+    blockquote {
+        background-color: #1C1F22;
+        margin: 0;
+        padding: 5px 5px 5px 20px;
+        border-left: 5px solid #343A40;
+    }
+
+    .highlight {
+        margin: 5px 0;
+        border: 1px solid #343A40;
+    }
+
+    .comments {
+        margin-top: 10px;
+        border-top: 1px solid #80cde7;
+    }
+}
+
+footer {
+    color: #6C7680;
+    padding: 10px 0;
+    border-top: 1px solid #fff500;
+}

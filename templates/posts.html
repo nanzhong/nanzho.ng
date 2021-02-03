@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} - Posts{% endblock %}
+
+{% block main %}
+<h1>All Posts</h1>
+<ul>
+  {% for post in posts %}
+  <li>
+    [{{ post.date | strftime("%Y-%m-%d") }}] <a href="{{ url_for("posts", slug=post.slug) }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+

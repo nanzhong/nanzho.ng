@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} - {{ post.title }}{% endblock %}
+
+{% block og %}
+<meta name="og:title" content="{{ post.title }}"></meta>
+<meta name="og:url" content="{{ url_for("pages", slug=post.slug) }}"></meta>
+{% endblock %}
+
+{% block twitter %}
+<meta name="twitter:title" content="{{ post.title }}"></meta>
+{% endblock %}
+
+{% block main %}
+{{ post.html | safe}}
+{% endblock %}

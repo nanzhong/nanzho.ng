@@ -13,7 +13,7 @@ RUN emacs --script dependencies.el
 
 COPY . .
 RUN mkdir -p output
-RUN sass assets/scss:output/assets/css
+RUN sass --style=compressed assets/scss:output/assets/css
 RUN cp -r assets/fonts output/assets/fonts
 RUN cp -r favicon/* output/.
 RUN emacs --script publish.el

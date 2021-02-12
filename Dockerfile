@@ -12,10 +12,9 @@ COPY dependencies.el .
 RUN emacs --script dependencies.el
 
 COPY . .
-RUN mkdir -p output
-RUN sass --style=compressed assets/scss:output/assets/css
-RUN cp -r assets/fonts output/assets/fonts
-RUN cp -r favicon/* output/.
+RUN sass --style=compressed theme/static/scss:theme/static/css
+
+RUN mkdir -p output=
 RUN emacs --script publish.el
 RUN find posts -type f | grep -v .org | xargs -i cp '{}' 'output/{}'
 

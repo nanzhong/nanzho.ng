@@ -71,6 +71,9 @@
    :template "posts.html"
    :output "output/posts/index.html"
    :url "/posts")
+  (weblorg-copy-static
+   :output "output/assets/{{ file }}"
+   :url "/assets/{{ file }}")
 
   (setq debug-on-error t)
   (weblorg-export))

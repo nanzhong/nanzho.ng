@@ -55,11 +55,13 @@
     <header>
       <nav>
         <ul>
+          <li class="prompt">›</li>
           {% for link in menu %}
           <li><a href={{ link.url }}>{{ link.name }}</a></li>
           {% endfor %}
         </ul>
       </nav>
+      <span class="comment">My thoughts and opinions on life, work, and everything in between.</span>
     </header>
     {% endblock %}
 
@@ -69,7 +71,7 @@
 
     {% block footer %}
     <footer>
-      Copyright © 2021 Nan Zhong - All content on this site reflect my own personal opinions
+      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
     </footer>
     {% endblock %}
   </body>

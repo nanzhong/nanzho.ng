@@ -3,11 +3,8 @@
 {% block title %}{{ super() }} - {{ name }}{% endblock %}
 
 {% block main %}
-<h1>{{ name }}</h1>
 
-My thoughts and opinions on life, work, and everything in between.
-
-<h2>Recent Posts</h2>
+<h1>Recent Posts</h1>
 <ul>
   {% for post in posts %}
   <li>
@@ -16,9 +13,9 @@ My thoughts and opinions on life, work, and everything in between.
   {% endfor %}
 </ul>
 
-<h2>Projects</h2>
+<h1>Projects</h1>
 
-<h3>Professional</h3>
+<h2>Professional</h2>
 <ul>
   {% for project in projects.professional %}
   <li>
@@ -27,7 +24,7 @@ My thoughts and opinions on life, work, and everything in between.
   {% endfor %}
 </ul>
 
-<h3>Personal</h3>
+<h2>Personal</h2>
 <ul>
   {% for project in projects.personal %}
   <li>
@@ -35,7 +32,4 @@ My thoughts and opinions on life, work, and everything in between.
   </li>
   {% endfor %}
 </ul>
-
-<br>
-<strong>Have a nice day!</strong>
 {% endblock %}

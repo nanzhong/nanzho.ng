@@ -6,11 +6,6 @@ RUN apt-get install -y nodejs nginx
 RUN npm install -g sass
 
 WORKDIR /workspace
-
-# Install configure dependencies
-COPY dependencies.el .
-RUN emacs --script dependencies.el
-
 COPY . .
 RUN sass --style=compressed theme/static/scss:theme/static/css
 

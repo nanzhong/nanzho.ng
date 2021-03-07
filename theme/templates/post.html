@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}{{ super() }} - {{ post.title }}{% endblock %}
+{% block title %}{{ title }} - {{ post.title }}{% endblock %}
 
 {% block og %}
 <meta name="og:title" content="{{ post.title }}"></meta>

@@ -8,6 +8,7 @@ RUN npm install -g sass
 WORKDIR /workspace
 
 COPY dependencies.el straight-versions.el /workspace/
+RUN rm -rf ~/.emacs.d
 RUN emacs --script dependencies.el
 
 COPY . .

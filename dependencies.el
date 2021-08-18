@@ -3,6 +3,11 @@
 (setq package-enable-at-startup nil)
 
 ;; Boostrap straight.el
+;; Configure straight package version lockfile
+(setq straight-profiles '((nil . "/workspace/straight-versions.el")))
+;; Disable symlinks since that seems to cause problems with app platform
+(setq straight-use-symlinks nil)
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -15,9 +20,6 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-
-;; Configure straight package version lockfile
-(setq straight-profiles '((nil . "/workspace/straight-versions.el")))
 
 ;; Bootstrap use-package
 (straight-use-package 'use-package)

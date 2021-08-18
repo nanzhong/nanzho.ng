@@ -10,6 +10,7 @@
 (message weblorg-default-url)
 (let ((site (weblorg-site
              :base-url weblorg-default-url
+             :theme nil
              :template-vars '(("title" . "nanzho.ng")
                               ("name" . "Nan Zhong")
                               ("menu" . ((("name" . "nanzho.ng")
@@ -49,7 +50,8 @@
                         `((("posts" . ,(butlast posts (- (length posts) 5)))))))
    :template "index.html"
    :output "output/index.html"
-   :url "/")
+   :url "/"
+   :site site)
   (weblorg-route
    :name "pages"
    :input-pattern "pages/*.org"
@@ -70,7 +72,8 @@
    :input-aggregate #'weblorg-input-aggregate-all-desc
    :template "posts.html"
    :output "output/posts/index.html"
-   :url "/posts")
+   :url "/posts"
+   :site site)
   (weblorg-copy-static
    :output "output/assets/{{ file }}"
    :url "/assets/{{ file }}")

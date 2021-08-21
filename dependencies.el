@@ -30,7 +30,8 @@
 (use-package org
   :straight t
   :config
-  (setq org-src-preserve-indentation t))
+  (setq org-src-preserve-indentation t
+        org-html-toplevel-hlevel 1))
 
 (use-package htmlize
   :straight t

@@ -83,14 +83,14 @@ header {
             color: #ffffff;
         }
 
-        li:after {
+        li::after {
             content: ' ';
         }
 
         li:nth-child(n+3) {
             float: right;
 
-            :before {
+            ::before {
                 content: '⦿';
                 margin-left: 15px;
                 margin-right: 5px;
@@ -111,38 +111,50 @@ main {
         margin: 5px 0;
     }
 
-    h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
         position: absolute;
         width: 75px;
         left: -75px;
         box-sizing: border-box;
-        padding-right: 5px;
+        padding-right: 10px;
         text-align: right;
         color: #63696d;
     }
 
-    h1:before {
-        content: "* "
+    h1::before {
+        content: "*";
     }
 
-    h2:before {
-        content: "** "
+    h1.title::before {
+        content: "";
+        width: 0;
+        left: 0;
+
+        @media (min-width: 576px) {
+            content: '#+title:';
+            width: 150px;
+            left: -150px;
+        }
     }
 
-    h3:before {
-        content: "*** "
+    h2::before {
+        content: "**";
     }
 
-    h4:before {
-        content: "**** "
+    h3::before {
+        content: "***";
     }
 
-    h5:before {
-        content: "***** "
+    h4::before {
+        content: "****";
     }
 
-    h6:before {
-        content: "****** "
+    h5::before {
+        content: "*****";
+    }
+
+    h6::before {
+        content: "******";
     }
 
     .meta {
@@ -161,16 +173,16 @@ main {
                 }
             }
 
-            li:before {
+            li::before {
                 content: '#';
             }
 
-            li:after {
+            li::after {
                 content: ' ';
             }
         }
 
-        ul.tags:before {
+        ul.tags::before {
             content: " | "
         }
     }
@@ -180,7 +192,7 @@ main {
         padding: 0;
         margin: 0;
 
-        li:before {
+        li::before {
             color: #63696d;
             content: "- "
         }

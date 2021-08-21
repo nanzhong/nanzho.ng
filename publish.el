@@ -15,8 +15,6 @@
                               ("name" . "Nan Zhong")
                               ("menu" . ((("name" . "nanzho.ng")
                                           ("url" . "/"))
-                                         (("name" . "org")
-                                          ("url" . "/org/"))
                                          (("name" . "posts")
                                           ("url" . "/posts/"))
                                          (("name" . "about")

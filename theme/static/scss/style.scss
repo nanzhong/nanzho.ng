@@ -87,8 +87,14 @@ header {
             content: ' ';
         }
 
-        li:nth-child(2):after {
-            content: ' |';
+        li:nth-child(n+3) {
+            float: right;
+
+            :before {
+                content: '⦿';
+                margin-left: 15px;
+                margin-right: 5px;
+            }
         }
     }
 

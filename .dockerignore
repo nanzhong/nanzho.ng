@@ -1,0 +1,7 @@
+Dockerfile
+app.yaml
+org-id-locations
+org-roam.db
+output
+straight/**/*
+!straight/versions/default.el

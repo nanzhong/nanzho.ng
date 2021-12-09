@@ -1,2 +1,9 @@
+org-id-locations
+org-roam.db
 output
 theme/static/css
+
+straight/*
+!straight/versions
+straight/versions/*
+!straight/versions/default.el

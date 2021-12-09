@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }} - {{ name }}{% endblock %}
+
+{% block main %}
+
+<h1 class="title">All Notes</h1>
+<ul>
+  {% for node in nodes %}
+  <li>
+    <a href="{{ url_for("org-nodes", slug=node.slug) }}">{{ node.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

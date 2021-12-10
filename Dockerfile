@@ -9,7 +9,7 @@ RUN npm install -g sass
 
 WORKDIR /workspace
 
-COPY init.el straight /workspace/
+COPY init.el .emacs /workspace/
 RUN emacs --script init.el
 
 COPY . .

@@ -15,5 +15,5 @@
  ("straight.el" . "af5437f2afd00936c883124d6d3098721c2d306c")
  ("templatel" . "b52349948b6927f7a5da4e54a89e01c794f2095a")
  ("use-package" . "a7422fb8ab1baee19adb2717b5b47b9c3812a84c")
- ("weblorg" . "ab36dd1a650b5e007110a133757232301b2ce1a0"))
+ ("weblorg" . "e548c44e16887cd26f1e0ffb7984f0c96ce9eaea"))
 :beta

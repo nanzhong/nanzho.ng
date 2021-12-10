@@ -1,6 +1,6 @@
 ;;; init.el --- Initialize emacs environment
 
-(setq user-emacs-directory (expand-file-name "."))
+(setq user-emacs-directory (expand-file-name ".emacs"))
 
 ;; Boostrap straight.el
 ;; Disable symlinks since that seems to cause problems with app platform.

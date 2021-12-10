@@ -3,7 +3,9 @@ org-roam.db
 output
 theme/static/css
 
-straight/*
-!straight/versions
-straight/versions/*
-!straight/versions/default.el
+.emacs/*
+!.emacs/straight
+.emacs/straight/*
+!.emacs/straight/versions
+.emacs/straight/versions/*
+!.emacs/straight/versions/default.el

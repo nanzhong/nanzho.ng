@@ -3,5 +3,5 @@ app.yaml
 org-id-locations
 org-roam.db
 output
-straight/**/*
-!straight/versions/default.el
+.emacs/**/*
+!.emacs/straight/versions/default.el

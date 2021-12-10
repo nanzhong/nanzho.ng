@@ -2,7 +2,7 @@
  ("el-get" . "960f3fb962c35d3196bab20b2a3f6d6228119277")
  ("emacs-fish" . "a7c953b1491ac3a3e00a7b560f2c9f46b3cb5c04")
  ("emacs-htmlize" . "dd27bc3f26efd728f2b1f01f9e4ac4f61f2ffbf9")
- ("emacsmirror-mirror" . "e828d51efdb8f3a16c4f47952f010263187c1e99")
+ ("emacsmirror-mirror" . "1c730f1d8a26171eb8cea4b9aa9369909f8af9ff")
  ("emacsql" . "9dca5996168c4963eb67e61c7f17fdcb8228e314")
  ("f.el" . "50af874cd19042f17c8686813d52569b1025c76a")
  ("gnu-elpa-mirror" . "98cfebcc05fd018121d943916e9d86189125e3d2")

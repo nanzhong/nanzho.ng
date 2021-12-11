@@ -35,6 +35,7 @@
   :straight t
   :config
   (setq org-src-preserve-indentation t
+        org-src-fontify-natively t
         org-html-toplevel-hlevel 1
         org-export-with-section-numbers nil
         org-id-locations-file (expand-file-name "./org-id-locations")))

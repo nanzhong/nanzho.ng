@@ -10,11 +10,14 @@
 
 (let* ((site (weblorg-site
               :base-url weblorg-default-url
+              :default-route "org-nodes"
               :theme nil
               :template-vars '(("title" . "nanzho.ng")
                                ("name" . "Nan Zhong")
                                ("menu" . ((("name" . "nanzho.ng")
                                            ("url" . "/"))
+                                          (("name" . "org")
+                                           ("url" . "/org/"))
                                           (("name" . "posts")
                                            ("url" . "/posts/"))
                                           (("name" . "about")
@@ -42,14 +45,25 @@
                                ("gtm_container" . "GTM-WQ2MB8X")
                                ("disqus_shortname" . "nanzhong"))))
        (org-roam-nodes-filter (lambda (node)
-                                (member "publish" (cdr (assoc "tags" node))))))
+                                (member "publish" (org-roam-node-tags node)))))
   (weblorg-route
    :name "index"
+   ;; This is hack at the moment and works because the result of
+   ;; :input-aggregate is directly returned. This should be reworked to make use
+   ;; of :input-source, but the way the posts pipeline currently works makes it
+   ;; hard to re-use the existing parts of the pipeline without changes.
    :input-pattern "posts/**/*.org"
    :input-aggregate (lambda (posts)
                       (let* ((agg-posts (weblorg-input-aggregate-all-desc posts))
-                             (posts (cdr (assoc "posts" (car agg-posts)))))
-                        `((("posts" . ,(butlast posts (- (length posts) 5)))))))
+                             (posts (cdr (assoc "posts" (car agg-posts))))
+                             (org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
+                                                                  org-roam-nodes-filter
+                                                                  (lambda (a b)
+                                                                    (time-less-p (org-roam-node-file-mtime b)
+                                                                                 (org-roam-node-file-mtime a)))
+                                                                  5))))))
+                        `((("posts" . ,(butlast posts (- (length posts) 5)))
+                           ("nodes" . ,org-nodes)))))
    :template "index.html"
    :output "output/index.html"
    :url "/"

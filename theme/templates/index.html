@@ -13,6 +13,15 @@
   {% endfor %}
 </ul>
 
+<h1>Recent Org Notes</h1>
+<ul>
+  {% for node in nodes %}
+  <li>
+    [{{ node.mtime | strftime("%Y-%m-%d") }}] <a href="{{ url_for("org-nodes", slug=node.slug) }}">{{ node.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
 <h1>Projects</h1>
 
 <h2>Professional</h2>

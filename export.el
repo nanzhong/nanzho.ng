@@ -42,8 +42,7 @@
                                ("github" . "nanzhong")
                                ("email" . "me@nanzho.ng")
                                ;; Integrations
-                               ("gtm_container" . "GTM-WQ2MB8X")
-                               ("disqus_shortname" . "nanzhong"))))
+                               ("gtm_container" . "GTM-WQ2MB8X"))))
        (org-roam-nodes-filter (lambda (node)
                                 (member "publish" (org-roam-node-tags node)))))
   (weblorg-route

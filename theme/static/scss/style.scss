@@ -1,6 +1,5 @@
 @import 'base';
 @import 'font';
-@import 'syntax';
 
 header, main, footer {
     margin: 0 auto;
@@ -61,6 +60,7 @@ header {
 }
 
 main {
+    position: relative;
     margin: 10px auto;
 
     h1, h2, h3, h4, h5, h6 {
@@ -117,6 +117,16 @@ main {
 
     h6::before {
         content: "******";
+    }
+
+    dl {
+        display: grid;
+        grid-template: auto / auto auto;
+        margin: 0;
+    }
+
+    dt {
+        font-weight: bold;
     }
 
     ul {
@@ -176,8 +186,8 @@ main {
     }
 
     .comments {
-        margin-top: 10px;
         border-top: 1px solid #80cde7;
+        padding: 20px 0 0 0;
     }
 
     div.meta {
@@ -240,15 +250,30 @@ main {
     }
 
     div#table-of-contents {
-        background-color: #1C1F22;
-        float: right;
-        margin-left: 10px;
-        padding: 0 10px 0 10px;
-        border-left: 5px solid #343A40;
-        font-size: 75%;
+        display: none;
 
-        h1::before {
-            content: '';
+        @media (min-width: 576px) {
+            display: block;
+            background-color: #1C1F22;
+            float: right;
+            margin-left: 10px;
+            padding: 0 10px 0 10px;
+            border-left: 5px solid #343A40;
+            font-size: 70%;
+
+            h1 {
+                margin: 3px 0;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        @media (min-width: 1200px) {
+            position: absolute;
+            left: 700px;
+            width: 250px;
         }
     }
 

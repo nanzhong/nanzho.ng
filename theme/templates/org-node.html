@@ -38,19 +38,18 @@
 {% endif %}
 
 <div class="comments">
-<div id="disqus_thread"></div>
-<script>
-  var disqus_config = function () {
-    this.page.url = '{{ url_for("org-nodes", slug=node.slug) }}';
-    this.page.identifier = '{{ node.slug }}';
-  };
-  (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ disqus_shortname }}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <script src="https://giscus.app/client.js"
+          data-repo="nanzhong/nanzho.ng"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTcxMjYwMTE="
+          data-category="Comments"
+          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-theme="transparent_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
 </div>
 {% endblock %}

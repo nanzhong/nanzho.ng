@@ -1,0 +1,16 @@
+name: nanzhong
+region: nyc
+domains:
+- domain: nanzho.ng
+  type: PRIMARY
+- domain: www.nanzho.ng
+  type: ALIAS
+static_sites:
+- name: www
+  github:
+    branch: public
+    deploy_on_push: true
+    repo: nanzhong/nanzho.ng
+  output_dir: /
+  routes:
+  - path: /

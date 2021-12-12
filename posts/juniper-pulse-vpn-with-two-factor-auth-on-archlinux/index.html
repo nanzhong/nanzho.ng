@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nanzho.ng - Juniper Pulse VPN with Two-Factor Auth on Archlinux</title>
+
+    <link rel="preload" href="/assets/fonts/iosevka-custom-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bolditalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/giscus.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta name="og:site_name" content="nanzho.ng"></meta>
+    <meta name="og:type" content="article"></meta>
+    
+<meta name="og:title" content="Juniper Pulse VPN with Two-Factor Auth on Archlinux"></meta>
+<meta name="og:url" content="/posts/juniper-pulse-vpn-with-two-factor-auth-on-archlinux/"></meta>
+
+    <meta name="twitter:card" content="summary"></meta>
+    
+    <meta name="twitter:site" content="nanzhong"></meta>
+    <meta name="twitter:creator" content="nanzhong"></meta>
+    
+    
+<meta name="twitter:title" content="Juniper Pulse VPN with Two-Factor Auth on Archlinux"></meta>
+
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2MB8X');</script>
+    <!-- End Google Tag Manager -->
+    
+  </head>
+  
+
+  <body>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2MB8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+
+    
+    <header>
+      <nav>
+        <ul>
+          <li class="prompt">›</li>
+          
+          <li><a href=/>nanzho.ng</a></li>
+          
+          <li><a href=/org/>org</a></li>
+          
+          <li><a href=/posts/>posts</a></li>
+          
+          <li><a href=/about/>about</a></li>
+          
+        </ul>
+      </nav>
+      <span class="comment">My thoughts and opinions on life, work, and everything in between.</span>
+    </header>
+    
+
+    <main>
+      
+<h1 class="title">Juniper Pulse VPN with Two-Factor Auth on Archlinux</h1>
+<div class="meta">
+  <span class="mtime">2014-09-04</span>
+  <ul class="filetags">
+    
+    <li>linux</li>
+    
+    <li>vpn</li>
+    
+    <li>juniper</li>
+    
+    <li>pulse</li>
+    
+  </ul>
+</div>
+
+<p>
+<i>Edit: Oct 2, 2016 - This is irrelevant now as <a href="https://wiki.archlinux.org/index.php/OpenConnect">OpenConnect</a> is able to handle all of this in a very straightforward and easy way now</i>
+<i>Edit: Dec 4, 2014 - Updated for jre 8</i>
+</p>
+
+<p>
+Recently at <a href="http://digitalocean.com">work</a>, we switched from openvpn to Juniper VPN, and I had quite the experience trying to get it working on Arch Linux. Hopefully this guide can save some of you guys a good day's worth of headache.
+</p>
+
+<p>
+Depending on the policy configuration of your company/organization, setting up Juniper can be reasonably straightforward or very hackish. If your organization does not require you to login through the browser (eg. simple username/password auth), then you can use the <code>jnc</code> or <code>msjnc</code> command line tools to connect directly; the <a href="https://wiki.archlinux.org">archwiki</a> has a <a href="https://wiki.archlinux.org/index.php/Juniper_VPN">great article</a> that walks through the steps for getting that setup.
+</p>
+
+<p>
+If your organization employs some sort of two-factor authentication, then the command line tools are a no-go and you will need to get the browser applet <code>network_connect</code> working. On the surface this seems pretty straight-forward but the problem is that it expects that you are running Red Hat, another rpm based distro (Juniper provides a rpm package), or a debian based distro (expects the <code>dpkg</code> based <code>update-alternatives</code> to be present). 
+</p>
+
+<p>
+This leaves us archers in an akward spot. The following will essentially install <code>dpkg</code> on arch, and setup <code>update-alternatives</code> to return the correct java paths to allow juniper to work; this assumes you are running 64-bit (Juniper is 32-bit only but has recently been updated to support running on a 64-bit os provided that the 32-bit dependencies are installed), 32-bit users will likely not have these problems.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install ~jre7~ and ~bin32-jre7~ from the AUR</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">I tried ~openjdk~ and ~icedtea~, but it doesn't seem to work. Juniper doesn't seem to recognize the 32-bit jvm. Suprisingly, it works on ubuntu...</span>
+yaourt -S jre7 bin32-jre7
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Make sure you have multilib enabled and install the necessary dependencies</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Replace ~yaourt~ with pacman + whatever tool you use to install packages from the AUR.</span>
+yaourt -S xterm lib32-glibc lib32-libzip lib32-gcc-libs lib32-libxext lib32-libxrender lib32-libxtst dpkg
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">You can test whether you have all the needed libraries by running ~sudo ldd ncsvc~ in ~/.juniper_networks/network_connect~ (sudo because ~ncsvc~ is setuid root).</span>
+   
+<span class="org-comment-delimiter"># </span><span class="org-comment">Setup ~update-alternatives~ for ~java~</span>
+sudo update-alternatives --install /usr/bin/java java /opt/java32/jre/bin/java 50
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-jre/bin/java 100
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Setup ~update-alternatives~ for ~javaws~</span>
+sudo update-alternatives --install /usr/bin/javaws javaws /opt/java32/jre/bin/javaws 50
+sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/java-8-jre/bin/javaws 100
+ 
+<span class="org-comment-delimiter"># </span><span class="org-comment">Setup ~update-alternatives~ for ~libnpjp2.so~</span>
+sudo update-alternatives --install /usr/lib/mozilla/plugins/libnpjp2.so java_plugin /opt/java32/jre/lib/i386/libnpjp2.so 50
+sudo update-alternatives --install /usr/lib/mozilla/plugins/libnpjp2.so java_plugin /usr/lib/jvm/java-8-jre/lib/amd64/libnpjp2.so 100
+</pre>
+</div>
+
+<p>
+You should be set to go! Login through the browser and starting <code>network_connect</code> should now present you with the vpn client.
+</p>
+
+<p>
+Hopefully this will save some of you some time.
+</p>
+
+
+<div class="comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="nanzhong/nanzho.ng"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTcxMjYwMTE="
+          data-category="Comments"
+          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-theme="transparent_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+    </main>
+
+    
+    <footer>
+      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
+    </footer>
+    
+  </body>
+</html>

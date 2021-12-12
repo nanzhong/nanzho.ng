@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nanzho.ng - typeracer-stats</title>
+
+    <link rel="preload" href="/assets/fonts/iosevka-custom-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bolditalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/giscus.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta name="og:site_name" content="nanzho.ng"></meta>
+    <meta name="og:type" content="article"></meta>
+    
+<meta name="og:title" content="typeracer-stats"></meta>
+<meta name="og:url" content="/posts/typeracer-stats/"></meta>
+
+    <meta name="twitter:card" content="summary"></meta>
+    
+    <meta name="twitter:site" content="nanzhong"></meta>
+    <meta name="twitter:creator" content="nanzhong"></meta>
+    
+    
+<meta name="twitter:title" content="typeracer-stats"></meta>
+
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2MB8X');</script>
+    <!-- End Google Tag Manager -->
+    
+  </head>
+  
+
+  <body>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2MB8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+
+    
+    <header>
+      <nav>
+        <ul>
+          <li class="prompt">›</li>
+          
+          <li><a href=/>nanzho.ng</a></li>
+          
+          <li><a href=/org/>org</a></li>
+          
+          <li><a href=/posts/>posts</a></li>
+          
+          <li><a href=/about/>about</a></li>
+          
+        </ul>
+      </nav>
+      <span class="comment">My thoughts and opinions on life, work, and everything in between.</span>
+    </header>
+    
+
+    <main>
+      
+<h1 class="title">typeracer-stats</h1>
+<div class="meta">
+  <span class="mtime">2014-04-20</span>
+  <ul class="filetags">
+    
+    <li>dvorak</li>
+    
+    <li>typeracer</li>
+    
+  </ul>
+</div>
+
+<p>
+<i>Edit 2016-10-02: I haven't maintained this at all, so much of this is likely no longer correct or working</i>
+</p>
+
+<p>
+Typing, keyboards, and ergonomics have been my latest obsession, and it has been fueled by my recent decision to switch to the Dvorak keyboard layout.
+</p>
+
+<p>
+These past few weeks I've progressed as a Dvorak typist (albeit much slower than I had hoped), and besides practice from typing as part of my daily work, <a href="http://typeracer.com">typeracer</a> has been a large part of this.
+</p>
+
+<p>
+Typeracer is great practice. By breaking down the typing practice into short bursts of high concentration, I feel like it provides a good balance of allowing you to build muscle memory without getting overly strained or frustrated. However it does have its limitations. Copying text is much easier than writing text; I find that not having to think about what you have to type next allows me to almost blank out my mind, and in this state my accuracy and typing speed is higher than when I normally type. Nonetheless, typeracer's pretty great and adding in gamification definietly makes it more fun than other typing practice tools I've tried lately.
+</p>
+
+<p>
+One thing that I feel that is really lacking from typeracer is meaningful statistics (or at least stats that I was able to find on the site). As a person who's actively trying to improve, I really want to know what my progress looks like. Out of the box, typeracer has support for exporting race history as a csv file (full history if you are a premium member), and it also shows your race history per race in a nice little graph, if you have typed the same race multiple times. Unfortunately, having to parse a csv file is no fun, and with the large selection of different texts for races you won't really have too much history to view per race unless you've already spent a very large amount of time on the game.
+</p>
+
+<p>
+A few days ago a was a little curious, and it turns out that there is a nice little API for querying typeracer race history. It returns JSON data, and basically there are two endpoints.
+</p>
+
+<p>
+<code>http://data.typeracer.com/users?id=tr:&lt;username&gt;</code>
+</p>
+
+<p>
+will return basic user profile information and stats in the following form
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">  {
+    <span class="org-string">"premium"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"name"</span>: <span class="org-string">"Nan"</span>,
+    <span class="org-string">"hasPic"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"country"</span>: <span class="org-string">"ca"</span>,
+    <span class="org-string">"tstats"</span>: {
+      <span class="org-string">"level"</span>: <span class="org-string">"L4"</span>,
+      <span class="org-string">"recentAvgWpm"</span>: 54.1952796936,
+      <span class="org-string">"cg"</span>: 218,
+      <span class="org-string">"gamesWon"</span>: 41,
+      <span class="org-string">"wpm"</span>: 46.8831816768,
+      <span class="org-string">"certWpm"</span>: 0,
+      <span class="org-string">"recentScores"</span>: [
+        56.4904060364,
+        ...
+      ],
+      <span class="org-string">"bestGameWpm"</span>: 64.6342315674
+    },
+    <span class="org-string">"avatar"</span>: <span class="org-constant">null</span>,
+    <span class="org-string">"lastName"</span>: <span class="org-string">"Zhong"</span>,
+    <span class="org-string">"countryManual"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"id"</span>: <span class="org-string">"tr:nanzhong"</span>
+  }
+</pre>
+</div>
+
+<p>
+and
+</p>
+
+<p>
+<code>http://data.typeracer.com/games?playerId=tr:&lt;username&gt;&amp;amp;n=&lt;batch_size&gt;&amp;amp;offset=&lt;offset&gt;</code>
+</p>
+
+<p>
+will return you race history in the form of
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">  [
+    {
+      <span class="org-string">"np"</span>: 3,
+      <span class="org-string">"wpm"</span>: 51.1230583191,
+      <span class="org-string">"r"</span>: 2,
+      <span class="org-string">"t"</span>: 1397950512.11,
+      <span class="org-string">"sl"</span>: <span class="org-string">"L5"</span>,
+      <span class="org-string">"tid"</span>: 278,
+      <span class="org-string">"gn"</span>: 218
+    },
+    ...
+  ]
+</pre>
+</div>
+
+<p>
+I may be wrong but these are the only endpoints that I was able to find. I really wish that typeracer would collect more metrics like character mistype counts, because to a typist who's trying to improve, that type of data would be extremely useful.
+</p>
+
+<p>
+The one main metric that I wanted to calculate from this data is how I am progressing in terms of typing speed, so I put together a really quick and simple tool for this, <a href="https://github.com/nanzhong/typeracer-stats">nanzhong/typeracer-stats</a>. If anyone is interested it will show basic profile information and stats as well as the daily average typing speed. You can access it by visiting <a href="http://typeracer-stats.nine27.com/username">http://typeracer-stats.nine27.com/username</a>, of course replacing "username" with your own.
+</p>
+
+<p>
+My progress has been slow but steady, and from the looks of it, I've still got a long way to go before I'm back at my Qwerty speed of ~95 WPM.
+</p>
+
+
+<div class="comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="nanzhong/nanzho.ng"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTcxMjYwMTE="
+          data-category="Comments"
+          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-theme="transparent_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+    </main>
+
+    
+    <footer>
+      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
+    </footer>
+    
+  </body>
+</html>

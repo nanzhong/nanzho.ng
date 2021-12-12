@@ -1,0 +1,47 @@
+html {
+    background-color: #171A1C;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Iosevka Custom', monospace;
+    color: #d9e0e4;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, pre {
+    font-family: 'Iosevka Custom', monospace;
+    font-size: 12px;
+    line-height: 20px;
+
+    @media (min-width: 576px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: #afce15;
+}
+
+ul, ol {
+    li {
+        p {
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+pre {
+    margin: 0;
+}

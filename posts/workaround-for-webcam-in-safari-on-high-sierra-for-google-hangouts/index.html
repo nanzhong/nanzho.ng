@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nanzho.ng - Workaround for webcam in Safari on High Sierra for Google Hangouts</title>
+
+    <link rel="preload" href="/assets/fonts/iosevka-custom-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bolditalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/giscus.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta name="og:site_name" content="nanzho.ng"></meta>
+    <meta name="og:type" content="article"></meta>
+    
+<meta name="og:title" content="Workaround for webcam in Safari on High Sierra for Google Hangouts"></meta>
+<meta name="og:url" content="/posts/workaround-for-webcam-in-safari-on-high-sierra-for-google-hangouts/"></meta>
+
+    <meta name="twitter:card" content="summary"></meta>
+    
+    <meta name="twitter:site" content="nanzhong"></meta>
+    <meta name="twitter:creator" content="nanzhong"></meta>
+    
+    
+<meta name="twitter:title" content="Workaround for webcam in Safari on High Sierra for Google Hangouts"></meta>
+
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2MB8X');</script>
+    <!-- End Google Tag Manager -->
+    
+  </head>
+  
+
+  <body>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2MB8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+
+    
+    <header>
+      <nav>
+        <ul>
+          <li class="prompt">›</li>
+          
+          <li><a href=/>nanzho.ng</a></li>
+          
+          <li><a href=/org/>org</a></li>
+          
+          <li><a href=/posts/>posts</a></li>
+          
+          <li><a href=/about/>about</a></li>
+          
+        </ul>
+      </nav>
+      <span class="comment">My thoughts and opinions on life, work, and everything in between.</span>
+    </header>
+    
+
+    <main>
+      
+<h1 class="title">Workaround for webcam in Safari on High Sierra for Google Hangouts</h1>
+<div class="meta">
+  <span class="mtime">2017-12-16</span>
+  <ul class="filetags">
+    
+    <li>macos</li>
+    
+    <li>safari</li>
+    
+    <li>hangouts</li>
+    
+  </ul>
+</div>
+
+
+<div id="org95d3a0c" class="figure">
+<p><img src="hangouts-workaround-twitter.gif" alt="hangouts-workaround-twitter.gif" />
+</p>
+</div>
+
+<p>
+I switched over to using Safari about a year ago because I was fed up with Chrome draining my battery, and I also really wanted to make use of the integration with iOS that lets me sync up browsing history and hand off what I was reading on my phone. But ever since I upgraded to High Sierra, the integrated webcam on my MacBook Pro stopped working with hangouts, and since I rely so heavily on Hangouts for work, it meant I had to start up Chrome just to use Hangouts. The way it fails also feels super trolly; the green light indicating that the webcam ss being used lights up, but there's just no video output&#x2026; This was annoying me to no end.
+</p>
+
+<p>
+Yesterday, while evaluating video quality of a bunch of different webcams, I stumbled upon what seems to be a workaround that lets me use the built in FaceTime camera in Safari for hangouts.
+</p>
+
+<p>
+The <b>tl;dr</b> is that the Google Talk plugins don't seem to be initializing the camera correctly, but if you start up some other program that does initialize the camera correctly, it will start working in Hangouts.
+</p>
+
+<p>
+I noticed this problem immediately after upgrading and since part of the upgrade was the jump to Safari 11, I assumed that some configuration or some of my preferences must have broken during the upgrade.
+</p>
+
+<p>
+The first thing that I tried was to re-install the Google Talk plugins that are needed for Hangouts on Safari and of course the trusty turning it off/on technique; this had no effect. Some quick Googling revealed that this was a common issue with High Sierra Safari users, however, the Google product forums don't suggest any fixes or workarounds that actually work.
+</p>
+
+<p>
+Next, I figured if this was an upgrade issue that messed up my configuration, why don't I just reset all the settings and try that. Unfortunately, the old "reset settings" feature that I recall Safari used to have seems to have disappeared, and the only thing that you can do automatically is clear history, cookies, caches, etc. I couldn't find anything about configuration or preferences; I ended up trying to do this manually by looking for all "safari" related things in ~​<code>/Library/Application Support</code> and getting rid of them. This also had no effect (quite possibly because I was doing this blindly and don't actually know if I deleted the relevant config/caches or not).
+</p>
+
+<p>
+Next I decided to do some digging through the system logs to see if anything interesting related to the webcam was there that would help me understand what was going on. Thankfully, I did find something. Hope restored.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-log">default	12:00:58.949578 -0500	GoogleTalkPlugin	/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Common/ChunkCompression.cpp:50: Error: unsupported compressor 8
+default	12:00:58.949641 -0500	GoogleTalkPlugin	/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Libraries/CompressData/CompressData.c:353: Error: Unknown compression scheme encountered for file '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/Exceptions.plist'
+default	12:00:58.952054 -0500	GoogleTalkPlugin	/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Common/ChunkCompression.cpp:50: Error: unsupported compressor 8
+default	12:00:58.952121 -0500	GoogleTalkPlugin	/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Libraries/CompressData/CompressData.c:353: Error: Unknown compression scheme encountered for file '/System/Library/CoreServices/CoreTypes.bundle/Contents/Library/AppExceptions.bundle/Exceptions.plist'
+default	12:01:07.256680 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.256964 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.268237 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.290532 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.323352 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.365681 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.398582 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+default	12:01:07.430625 -0500	GoogleTalkPlugin	*** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+</pre>
+</div>
+
+<p>
+(I've removed the non-relevant log lines)
+</p>
+
+<p>
+So clearly two things seem to be wrong.
+</p>
+
+<p>
+The first seems to be some sort of (un)compression error which seems to occur when the new APFS filesystem is not properly supported (aha, seems related since this issue started after my High Sierra upgrade which included the filesystem upgrade).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-log">/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Common/ChunkCompression.cpp:50: Error: unsupported compressor 8
+/BuildRoot/Library/Caches/com.apple.xbs/Sources/AppleFSCompression/AppleFSCompression-96.30.2/Libraries/CompressData/CompressData.c:353: Error: Unknown compression scheme encountered for file '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/Exceptions.plist'
+</pre>
+</div>
+
+<p>
+The second seems to be directly related to the webcam.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-log">something
+​**** QTCaptureSession warning: Session received the following error while decompressing video: Error Domain=NSOSStatusErrorDomain Code=-8961 "noCodecErr". Make sure that the formats of all video outputs are properly configured.
+else
+</pre>
+</div>
+
+<p>
+So it seems to suggest that I'm missing a codec for the webcam's video stream? That's weird though because the webcam works fine for Hangouts in Chrome, and other apps (FaceTime, Photo Booth, etc.) seem to be able to use it fine&#x2026; Unfortunately I knew nothing about <code>QTCaptureSession</code>, and I also couldn't find anything relevant about it online. Seems like I hit a dead end.
+</p>
+
+<p>
+Or so I thought for a few months&#x2026; Last night I happened to be recording some short videos captured from different webcams to compare their video quality. That's when I realized I had never tried to use any webcam other than the one in my MacBook Pro. Out of curiosity I decided to try a Logitech webcam in Safari for a Hangout and lo and behold it worked fine.
+</p>
+
+<p>
+I don't know anything about how webcam video footage is encoded or how the OS handles it, but there must be something specific about the integrated FaceTime webcam that's not working. Hoping to find out more about why the FaceTime camera work in other applications, I decided to look through the logs of other applications that were able to successfully use the camera. That yielded nothing, but it turns out I forgot to close the Hangout window I was playing around with before, and through a stroke of luck the video input source that I had left configured in that Hangout was the broken FaceTime camera; when I closed Photo Booth (the app whose logs I was digging through), I noticed that the video from my FaceTime webcam was showing up in the Hangout! How&#x2026; Whaa?
+</p>
+
+<p>
+Long story short, I spent the next little while trying all sorts of weird orderings of starting a Hangout + starting Photo Booth, and discovered that if you start Photo Booth <b>after</b> starting the Hangout and <b>after</b> the green light is on, the FaceTime webcam will start working in the Hangout. Also, it seems to be specific about how Photo Booth initializes the camera; doing the same thing but with the FaceTime app, which can also correctly use the camera, does not work.
+</p>
+
+<p>
+I definitely prefer this to having to open Chrome specifically for Hangouts, but it's still quite a hassle. Please fix this Google; if anyone close to the team responsible for Hangouts reads this, I'm happy to provide more information on reproducing this or anything else to help fix this issue.
+</p>
+
+
+<div class="comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="nanzhong/nanzho.ng"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTcxMjYwMTE="
+          data-category="Comments"
+          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-theme="transparent_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+    </main>
+
+    
+    <footer>
+      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
+    </footer>
+    
+  </body>
+</html>

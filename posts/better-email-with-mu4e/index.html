@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nanzho.ng - Better Email with mu4e</title>
+
+    <link rel="preload" href="/assets/fonts/iosevka-custom-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/iosevka-custom-bolditalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/giscus.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta name="og:site_name" content="nanzho.ng"></meta>
+    <meta name="og:type" content="article"></meta>
+    
+<meta name="og:title" content="Better Email with mu4e"></meta>
+<meta name="og:url" content="/posts/better-email-with-mu4e/"></meta>
+
+    <meta name="twitter:card" content="summary"></meta>
+    
+    <meta name="twitter:site" content="nanzhong"></meta>
+    <meta name="twitter:creator" content="nanzhong"></meta>
+    
+    
+<meta name="twitter:title" content="Better Email with mu4e"></meta>
+
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2MB8X');</script>
+    <!-- End Google Tag Manager -->
+    
+  </head>
+  
+
+  <body>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2MB8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+
+    
+    <header>
+      <nav>
+        <ul>
+          <li class="prompt">›</li>
+          
+          <li><a href=/>nanzho.ng</a></li>
+          
+          <li><a href=/org/>org</a></li>
+          
+          <li><a href=/posts/>posts</a></li>
+          
+          <li><a href=/about/>about</a></li>
+          
+        </ul>
+      </nav>
+      <span class="comment">My thoughts and opinions on life, work, and everything in between.</span>
+    </header>
+    
+
+    <main>
+      
+<h1 class="title">Better Email with mu4e</h1>
+<div class="meta">
+  <span class="mtime">2016-10-03</span>
+  <ul class="filetags">
+    
+    <li>emacs</li>
+    
+    <li>email</li>
+    
+    <li>mu4e</li>
+    
+  </ul>
+</div>
+
+<p>
+I've never been a big fan of email, but at this point, it's so ingrained into the day to day of every profession that the only thing one can do is conform. I used gmail ever since it was introduced by Google in 2004, and I have to admit that out of all the free email providers, it's pretty great. Sure its UI has had its ups and downs, and it has been the centre of some controversy with the scanning of emails for advertisements, but the feature set it provides is hard to argue against, but it also has its shortcomings.
+</p>
+
+<p>
+When the amount of email you receive starts to encroach on unmanageable territory, you start realizing that:
+</p>
+
+<ul class="org-ul">
+<li>the UI becomes very cumbersome</li>
+<li>bulk actions takes a lot of mouse movement</li>
+<li>as fast as it is, seeing that "Loading&#x2026;" message at the top of the screen is just <b>ugh</b></li>
+<li>and most importantly&#x2026;</li>
+</ul>
+
+<p>
+Checking email in a browser is a <b><b>huge</b></b> distraction. I spend most of my day staring at emacs, and when email notifications ding, I feel compelled to check; switching to the completely browser pulls me out of my flow. Once you're in the browser, you realize that you are on a slippery slope&#x2026; It starts tempting you to check <a href="https://news.ycombinator.com">hacker news</a> or <a href="https://reddit.com">reddit</a> (at least for me), and often times it's impossible to not succumb to it; we all know how easily time goes missing "just checking if anything new popped up on the front-page".
+</p>
+
+<div id="outline-container-mu4e" class="outline-1">
+<h1 id="mu4e">mu4e</h1>
+<div class="outline-text-1">
+<p>
+Addressing these annoyances is where <a href="https://www.djcbsoftware.nl/code/mu/mu4e.html">mu4e</a> comes into play. mu4e is an email frontend for emacs that built on top of mu, which is an email indexer/searcher. My reasons for why mu4e has greatly improved my email experience are:
+</p>
+
+<ul class="org-ul">
+<li>super fast and optimized UI
+<ul class="org-ul">
+<li>keyboard driven actions</li>
+<li>bulk selection/actions can leverage all of emacs' search/marking functionality</li>
+<li>emacs text editing for writing email</li>
+</ul></li>
+<li>fast search supporting complex querying</li>
+<li>extensible because emacs :fireworks:</li>
+<li>keeps me in my workflow since I'm already in emacs</li>
+<li>no distractions</li>
+</ul>
+
+<p>
+<i>Note: there are a number of other text based email clients which are similar to mu4e (another client I've tried for a couple months was mutt), but I feel like mu4e is much better overall; it so much more customizable and fits really nicely with gmail's IMAP implementation (more on this later).</i>
+</p>
+
+<p>
+Getting mu4e up and running is not a difficult task, but it's definitely more work than you are probably used to, if you haven't tried other text based email clients before. The following describes my configuration and setup that hopefully you makes it a little easier for you to jump in.
+</p>
+
+<p>
+My email setup consists of 2 gmail accounts, one personal and one for work, both of which are on Google Apps and secured via two-factor auth. The steps below are also tailored to macOS. If your setup is different, much of the following should still be relevant with a few tweaks.
+</p>
+</div>
+
+<div id="outline-container-syncing-email" class="outline-2">
+<h2 id="syncing-email">Syncing Email</h2>
+<div class="outline-text-2">
+<p>
+mu4e/mu works off of a <a href="https://en.wikipedia.org/wiki/Maildir">maildir</a>, so the first step is to actually get your email accounts setup to sync with your local maildir. It feels a little weird to be storing copies of your email locally in this day and age, but one often overlooked advantage to this is that you always have full access to your historical email (eg. when you don't have internet access). I also use my phone to check my email, so being able to sync email state between devices is a must; this rules out using POP and leaves me with IMAP. There are a number of applications that can be used for this: <a href="http://www.offlineimap.org/">offlineimap</a>, <a href="http://isync.sourceforge.net/">mbsync</a>, and others. I personally use offlineimap because it seems to offer the most documentation and exaples, and it seems to be the only one that supports XOAUTH2 which is the preferred way to access gmail accounts.
+</p>
+</div>
+
+<div id="outline-container-gmail-special-snowflake" class="outline-3">
+<h3 id="gmail-special-snowflake">gmail - Special Snowflake</h3>
+<div class="outline-text-3">
+<p>
+Before going into the configuration, you should be aware that the way gmail does IMAP is non-standard. In regular IMAP, each email can only exist once across all folders; gmail has labels instead of folders, and each email can be assigned multiple labels, so this uniqueness constraint clearly doesn't work. Instead, gmail has a notion of an "All Mail" folder, which includes a copy of every single one of your emails (this includes your received, sent, drafts, trashed, etc.; the only exception is your spam which does not appear here). Your inbox and all your labels get translated into "folders" and as a result you are going to have multiple copies of the same email. This wrecks havoc on regular IMAP clients, and as a result, special considerations need to be taken into account.
+</p>
+
+<p>
+mu4e, has a special configuration option to hide duplicate copies of emails, but when actions are taken on an email (eg. archiving, trashing), only that copy gets affected, and as a result you run into weird consistency issues (this inconsistency persists until you perform two syncs; the first sync informs gmail of the changes so that it can resolve the inconsistency, and the second sync pulls the resolved state down). I've ended up settling on an approach detailed by <a href="https://groups.google.com/forum/#!topic/mu-discuss/BpGtwVHMd2E">Magnus Therning</a>, where I completely ignore the label "folders" and rely almost completely on the "All Mail" folder. This works extremely well because mu is essentially just an email indexer and searcher, and since all the gmail labels are also included as part of a header (as tags) in the email messages themselves, it's possible to reconstruct them by building custom search queries for viewing email as well as adding and removing these tags to "change" the labels for email. This cleverly solves the issue of duplicated emails and also cuts down the amount of email that needs to be synced.
+</p>
+
+<p>
+The following assumes this approach.
+</p>
+</div>
+</div>
+
+<div id="outline-container-offlineimap" class="outline-3">
+<h3 id="offlineimap">offlineimap</h3>
+<div class="outline-text-3">
+<p>
+First, install offlineimap
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">brew install offlineimap
+</pre>
+</div>
+
+<p>
+The next step is to configure offlineimap. offlineimap also supports loading a python environment file so that configuration can be evaluated using python; any imports and any other things such as custom function definitions should all live in that environment file. I take advantage of this feature to <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/security.1.html">pull my oauth credentials from the macOS keychain</a> so that they don't need to be stored in plaintext in the config file. My python environment file lives at ~​<code>/.offlineimap.py</code> and contains:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> json
+<span class="org-keyword">import</span> subprocess
+
+<span class="org-keyword">def</span> <span class="org-function-name">secure_string_for</span>(account, service, value):
+    <span class="org-comment-delimiter"># </span><span class="org-comment">this relies on the macOS `security` tool</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/security.1.html</span>
+    <span class="org-keyword">return</span> json.loads(subprocess.check_output([<span class="org-string">"security"</span>,
+                                               <span class="org-string">"find-generic-password"</span>,
+                                               <span class="org-string">"-a"</span>, account,
+                                               <span class="org-string">"-s"</span>, service,
+                                               <span class="org-string">"-w"</span>]).strip())[value]
+</pre>
+</div>
+
+<p>
+offlineimap looks for your configuration at ~​<code>/.offlineimaprc</code>; my configuration is as follows and includes annotated comments (for complete documentation of the configuration options see <a href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf">the example config</a>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ini">[general]
+# This lists the accounts that I will be configuring.
+accounts = nine27, do
+# offlineimap by default will fsync() to try and reduce chances for data
+# inconsistency. In most cases disabling this is fine, and also reduces 
+# the number write cycles.
+fsync = false
+# This is the path to the aforementioned python environment that will be used.
+pythonfile = ~/.offlineimap.py
+# This helps prevent offlineimap hanging when network connection is lost.
+socktimeout = 60
+
+# This is the account definition for my first account, 
+# note the name matching that in the accounts list in [general].
+[Account nine27]
+# These repository names can be anything as they are only used to link the 
+# local and remote repository config to the account.
+localrepository = nine27-local
+remoterepository = nine27-remote
+# Use sqlite instead of a flat file for better performance.
+status_backend = sqlite
+# This enables syncing the labels on the emails: \Inbox, \Flagged, \Trashed, etc.
+synclabels = yes
+# This is the header name that the labels are stored at, gmail uses X-Keywords.
+labelsheader = X-Keywords
+# Here you can configure a custom script to be run each time a sync completes.
+postsynchook = ~/.offlineimap/hooks/postsync-nine27
+
+# This is the local repository config (local meaning the local maildir).
+[Repository nine27-local]
+# Since this is a gmail account (special quirks), the type is GmailMaildir; 
+# regular IMAP accounts should use Maildir.
+type = GmailMaildir
+# This is the path to the maildir.
+localfolders = ~/.mail/nine27
+
+# This is the remote repository config (imap server)
+[Repository nine27-remote]
+# Since this is a gmail account, the type is Gmail; regular imap accounts should
+# use IMAP.
+type = Gmail
+# gmail no longer supports regular LOGIN for auth, you either need to use OAuth, setup 
+# access for insecure apps (https://support.google.com/accounts/answer/6010255?hl=en),
+# or generate an app password (https://support.google.com/accounts/answer/185833).
+# Accounts that use two-factor auth will need to use OAuth or an app password.
+# The following example is for OAuth, for instructions on setting this up see 
+# https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L809-L865.
+# When using an insecure login or an app password, this should be LOGIN.
+auth_mechanisms = XOAUTH2
+remoteuser = nan@nine27.com
+# The following are the config options for OAuth login, note the secure_string_for
+# python method that I've defined in ~/.offlineimap.py to securely fetch credentials from
+# the macOS keychain.
+oauth2_client_id_eval = secure_string_for("nan@nine27.com", "mail.nine27.com", "client_id")
+oauth2_client_secret_eval = secure_string_for("nan@nine27.com", "mail.nine27.com", "client_secret")
+oauth2_refresh_token_eval = secure_string_for("nan@nine27.com", "mail.nine27.com", "refresh_token")
+# Location of the ssl ca certificate.
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+# Normally deleting an email would actually delete it, however gmail works differently
+# in that deleting an email just adds a /Trashed label to it. So if you want to use the Trash
+# functionality of gmail, this should be set to no.
+realdelete = no
+# This is evaluated python that determines which folders to sync. The key here is to ignore
+# the label "folders" and rely on only the All Mail folder and the other folders that map onto
+# mu4e's flag actions.
+folderfilter = lambda folder: folder.startswith('[Gmail]/') and \
+    folder[8:] in ['All Mail', 'Trash', 'Drafts', 'Spam'] 
+trashfolder = [Gmail]/Trash 
+
+# The following is essentially the identical configuration, but for my work email.
+[Account do]
+localrepository = do-local
+remoterepository = do-remote
+status_backend = sqlite
+synclabels = yes
+labelsheader = X-Keywords
+postsynchook = ~/.offlineimap/hooks/postsync-do
+
+[Repository do-local]
+type = GmailMaildir
+localfolders = ~/.mail/do
+
+[Repository do-remote]
+type = Gmail
+auth_mechanisms = XOAUTH2
+remoteuser = nzhong@digitalocean.com
+oauth2_client_id_eval = secure_string_for("nzhong@digitalocean.com", "mail.digitalocean.com", "client_id")
+oauth2_client_secret_eval = secure_string_for("nzhong@digitalocean.com", "mail.digitalocean.com", "client_secret")
+oauth2_refresh_token_eval = secure_string_for("nzhong@digitalocean.com", "mail.digitalocean.com", "refresh_token")
+ssl=true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+realdelete = no
+folderfilter = lambda folder: folder.startswith('[Gmail]/') and \
+    folder[8:] in ['All Mail', 'Trash', 'Drafts', 'Spam'] 
+trashfolder = [Gmail]/Trash 
+</pre>
+</div>
+
+<p>
+Once your configuration is in place, running
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">offlineimap -o
+</pre>
+</div>
+
+<p>
+will kick off a sync and pull down all your email. This might take a while depending on how much email you have.
+</p>
+
+<p>
+For those of you not familiar with syncing mail between a local maildir and a remote server, you should be aware that when you take any actions on your email (mark as read, archiving, trashing, etc.), the changes will not be propagated to the remote server until your next sync. This means that you need to run your sync periodically to keep your mail up to date. There are a number of approaches to doing this, but the most common approaches are:
+</p>
+
+<ul class="org-ul">
+<li>run offlineimap without the <code>-o</code> flag and configuring it to sync periodically via the <code>autorefresh</code> config option</li>
+<li>use something else like <code>launchd</code> or <code>cron</code> to periodically sync</li>
+</ul>
+
+<p>
+I don't recommend using <code>autorefresh</code> mostly because offlineimap has a tendency to randomly hang; it happens especially often when you lose/regain internet connectivity (which happens all the time if you are on a laptop). This is pretty annoying because you are left thinking you have no new mail, when instead it's offlineimap not behaving. Running it periodically and specifying a <code>socktimeout</code> value more or less relieved this issue for me.
+</p>
+
+<p>
+Some other useful command line flags for offlineimap are:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">offlineimap -a &lt;account name&gt;
+</pre>
+</div>
+
+<p>
+to sync a specific account, and
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">offlineimap -q
+</pre>
+</div>
+
+<p>
+to do a quick sync (skip syncing the flags on emails).
+</p>
+
+<p>
+In my configuration I've set up postsync hooks for my accounts so that I can be notified of any new email that has been synced. For example, the postsync script for my personal account looks like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter">#</span><span class="org-comment">!/bin/</span><span class="org-keyword">sh</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Count new mail for every maildir</span>
+<span class="org-variable-name">maildirnew</span>=<span class="org-string">"$HOME/.mail/nine27/*/new"</span>
+<span class="org-variable-name">new</span>=<span class="org-string">"$(find $maildirnew -type f | grep -v Gmail | wc -l | sed 's/ //g')"</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Notify me via a notification</span>
+<span class="org-keyword">if</span> [ $<span class="org-variable-name">new</span> -gt 0 ]
+<span class="org-keyword">then</span>
+    /usr/local/bin/reattach-to-user-namespace /usr/local/bin/terminal-notifier -title <span class="org-string">'offlineimap'</span> -subtitle <span class="org-string">'nan@nine27.com'</span> -message <span class="org-string">"You have $new new email(s)!"</span> -group offlineimap-nine27
+<span class="org-keyword">fi</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sending-email" class="outline-1">
+<h1 id="sending-email">Sending Email</h1>
+<div class="outline-text-1">
+<p>
+Now that you are able to receive email, we can move on to configuring the sending of email. There are many tools for this similar to syncing, but the one I use and have seen the most configuration examples for is msmtp.
+</p>
+
+<p>
+You can install it with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">brew install msmtp
+</pre>
+</div>
+
+<p>
+msmtp looks for its configuration at ~​<code>/.msmtprc</code>, and it is pretty straightforward to configure. My configuration with annotated comments where things are not self-explanatory is as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">account nine27
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+from nan@nine27.com
+user nan@nine27.com
+# msmtp does not support OAuth, so instead you will have to use user/pass. If you don't have
+# two factor auth enabled, enabling insecure apps to access your email should be sufficient and
+# you can use your normal password, but if you do have it enabled you will need to generate an
+# app password. See the comments in the offlineimap config for details.
+# Once again I'm using `security` to pull the password from my macOS keychain.
+passwordeval security find-internet-password -g -a nan@nine27.com -s smtp.gmail.com -w
+tls on
+tls_starttls on
+# If you don't have this cert, you can generate it by ~brew install curl~ and then running
+# `/usr/local/Cellar/curl/&lt;curl version&gt;/libexec/mk-ca-bundle.pl`
+tls_trust_file ~/.msmtp/ca-bundle.crt
+
+account do
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+from nzhong@digitalocean.com
+user nzhong@digitalocean.com
+passwordeval security find-internet-password -g -a nzhong@digitalocean.com -s smtp.gmail.com -w
+tls on
+tls_trust_file ~/.msmtp/ca-bundle.crt
+
+account default : nine27
+</pre>
+</div>
+
+<p>
+And that's it! A nice thing about accessing your mail via a local maildir and sending mail using a SMTP client, is that you can write mail and queue it up to be sent when you don't have an internet connection, and once you are connected the client will send it out.
+</p>
+</div>
+</div>
+
+<div id="outline-container-putting-it-all-together-with-mu4e" class="outline-1">
+<h1 id="putting-it-all-together-with-mu4e">Putting it All Together with mu4e</h1>
+<div class="outline-text-1">
+<p>
+Now that both receiving and sending email has been configured, we can put it all together using mu/mu4e. You can install it with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">brew install mu --with-emacs --HEAD
+</pre>
+</div>
+
+<p>
+<b>Note: The reason for building mu from HEAD is because the <code>'mu4e-mark-execute-pre-hook</code> was not available in the latest release at the time of writing. This may no longer be the case.</b>
+</p>
+
+<p>
+The first thing you will want to do is index your email
+</p>
+
+<pre class="example">
+mu index -m ~/.mail
+</pre>
+
+<p>
+mu is pretty fast at doing this, but this might still take some time depending on how much email you have.
+</p>
+
+<p>
+Now all that is left is to configure your emacs. A quick disclaimer, much of this config uses pieces that have been written by others, and I definitely don't claim to be using mu4e anywhere close to its full potential. My configuration only scratches the surface of the possible customizability (it's pretty incredible that even at this state the user experience is so great), but the following is my configuration with annotations where things are not self-explanatory:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">  <span class="org-comment-delimiter">;;; </span><span class="org-comment">mu.el --- mu email config</span>
+
+  (<span class="org-keyword">use-package</span> <span class="org-constant">mu4e</span>
+    <span class="org-builtin">:config</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This is a helper to help determine which account context I am in based </span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">on the folder in my maildir the email (eg. ~/.mail/nine27) is located in.</span>
+    (<span class="org-keyword">defun</span> <span class="org-function-name">mu4e-message-maildir-matches</span> (msg rx)
+      (<span class="org-keyword">when</span> rx
+        (<span class="org-keyword">if</span> (listp rx)
+            <span class="org-comment-delimiter">;; </span><span class="org-comment">If rx is a list, try each one for a match</span>
+            (<span class="org-keyword">or</span> (mu4e-message-maildir-matches msg (car rx))
+                (mu4e-message-maildir-matches msg (cdr rx)))
+          <span class="org-comment-delimiter">;; </span><span class="org-comment">Not a list, check rx</span>
+          (string-match rx (mu4e-message-field msg <span class="org-builtin">:maildir</span>)))))
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Choose account label to feed msmtp -a option based on From header</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">in Message buffer; This function must be added to</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">message-send-mail-hook for on-the-fly change of From address before</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">sending message since message-send-mail-hook is processed right</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">before sending message.</span>
+    (<span class="org-keyword">defun</span> <span class="org-function-name">choose-msmtp-account</span> ()
+      (<span class="org-keyword">if</span> (message-mail-p)
+          (<span class="org-keyword">save-excursion</span>
+            (<span class="org-keyword">let*</span>
+                ((from (<span class="org-keyword">save-restriction</span>
+                         (message-narrow-to-headers)
+                         (message-fetch-field <span class="org-string">"from"</span>)))
+                 (account
+                  (<span class="org-keyword">cond</span>
+                   ((string-match <span class="org-string">"nzhong@digitalocean.com"</span> from) <span class="org-string">"do"</span>)
+                   ((string-match <span class="org-string">"nan@nine27.com"</span> from) <span class="org-string">"nine27"</span>))))
+              (<span class="org-keyword">setq</span> message-sendmail-extra-arguments (list '<span class="org-string">"-a"</span> account))))))
+
+    (<span class="org-keyword">setq</span> mail-user-agent 'mu4e-user-agent)
+    (<span class="org-keyword">setq</span> mu4e-mu-binary <span class="org-string">"/usr/local/bin/mu"</span>)
+    (<span class="org-keyword">setq</span> mu4e-maildir <span class="org-string">"~/.mail"</span>)
+    (<span class="org-keyword">setq</span> mu4e-get-mail-command <span class="org-string">"offlineimap -o"</span>)
+    (<span class="org-keyword">setq</span> mu4e-update-interval 300)
+    (<span class="org-keyword">setq</span> mu4e-view-show-images t)
+    (<span class="org-keyword">setq</span> mu4e-html2text-command <span class="org-string">"w3m -dump -T text/html"</span>)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This enables unicode chars to be used for things like flags in the message index screens.</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">I've disabled it because the font I am using doesn't support this very well. With this</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">disabled, regular ascii characters are used instead.</span>
+    <span class="org-comment-delimiter">;</span><span class="org-comment">(setq mu4e-use-fancy-chars t)</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This enabled the thread like viewing of email similar to gmail's UI.</span>
+    (<span class="org-keyword">setq</span> mu4e-headers-include-related t)
+    (<span class="org-keyword">setq</span> mu4e-attachment-dir  <span class="org-string">"~/Downloads"</span>)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This prevents saving the email to the Sent folder since gmail will do this for us on their end.</span>
+    (<span class="org-keyword">setq</span> mu4e-sent-messages-behavior 'delete)
+    (<span class="org-keyword">setq</span> message-kill-buffer-on-exit t)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Enable inline images.</span>
+    (<span class="org-keyword">setq</span> mu4e-view-show-images t)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Use imagemagick, if available.</span>
+    (<span class="org-keyword">when</span> (fboundp 'imagemagick-register-types)
+      (imagemagick-register-types))
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Sometimes html email is just not readable in a text based client, this lets me open the</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">email in my browser.</span>
+    (add-to-list 'mu4e-view-actions '(<span class="org-string">"View in browser"</span> . mu4e-action-view-in-browser) t)
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Spell checking ftw.</span>
+    (add-hook 'mu4e-compose-mode-hook 'flyspell-mode)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This hook correctly modifies the \Inbox and \Starred flags on email when they are marked.</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Without it refiling (archiving) and flagging (starring) email won't properly result in</span>
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">the corresponding gmail action.</span>
+    (add-hook 'mu4e-mark-execute-pre-hook
+              (<span class="org-keyword">lambda</span> (mark msg)
+                (<span class="org-keyword">cond</span> ((member mark '(refile trash)) (mu4e-action-retag-message msg <span class="org-string">"-\\Inbox"</span>))
+                      ((equal mark 'flag) (mu4e-action-retag-message msg <span class="org-string">"\\Starred"</span>))
+                      ((equal mark 'unflag) (mu4e-action-retag-message msg <span class="org-string">"-\\Starred"</span>)))))
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">This sets up my two different context for my personal and work emails.</span>
+    (<span class="org-keyword">setq</span> mu4e-contexts
+          `( ,(make-mu4e-context
+               <span class="org-builtin">:name</span> <span class="org-string">"nine27"</span>
+               <span class="org-builtin">:enter-func</span> (<span class="org-keyword">lambda</span> () (mu4e-message <span class="org-string">"Switch to the nine27 context"</span>))
+               <span class="org-builtin">:match-func</span> (<span class="org-keyword">lambda</span> (msg)
+                             (<span class="org-keyword">when</span> msg
+                               (mu4e-message-maildir-matches msg <span class="org-string">"^/nine27"</span>)))
+               <span class="org-builtin">:leave-func</span> (<span class="org-keyword">lambda</span> () (mu4e-clear-caches))
+               <span class="org-builtin">:vars</span> '((user-mail-address     . <span class="org-string">"nan@nine27.com"</span>)
+                       (user-full-name        . <span class="org-string">"Nan Zhong"</span>)
+                       (mu4e-sent-folder      . <span class="org-string">"/nine27/[Gmail].All Mail"</span>)
+                       (mu4e-drafts-folder    . <span class="org-string">"/nine27/[Gmail].Drafts"</span>)
+                       (mu4e-trash-folder     . <span class="org-string">"/nine27/[Gmail].Trash"</span>)
+                       (mu4e-refile-folder    . <span class="org-string">"/nine27/[Gmail].All Mail"</span>)))
+             ,(make-mu4e-context
+               <span class="org-builtin">:name</span> <span class="org-string">"do"</span>
+               <span class="org-builtin">:enter-func</span> (<span class="org-keyword">lambda</span> () (mu4e-message <span class="org-string">"Switch to the do context"</span>))
+               <span class="org-builtin">:match-func</span> (<span class="org-keyword">lambda</span> (msg)
+                             (<span class="org-keyword">when</span> msg
+                               (mu4e-message-maildir-matches msg <span class="org-string">"^/do"</span>)))
+               <span class="org-builtin">:leave-func</span> (<span class="org-keyword">lambda</span> () (mu4e-clear-caches))
+               <span class="org-builtin">:vars</span> '((user-mail-address     . <span class="org-string">"nzhong@digitalocean.com"</span>)
+                       (user-full-name        . <span class="org-string">"Nan Zhong"</span>)
+                       (mu4e-sent-folder      . <span class="org-string">"/do/[Gmail].All Mail"</span>)
+                       (mu4e-drafts-folder    . <span class="org-string">"/do/[Gmail].Drafts"</span>)
+                       (mu4e-trash-folder     . <span class="org-string">"/do/[Gmail].Trash"</span>)
+                       (mu4e-refile-folder    . <span class="org-string">"/do/[Gmail].All Mail"</span>)))))
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Configure sending mail.</span>
+    (<span class="org-keyword">setq</span> message-send-mail-function 'message-send-mail-with-sendmail
+          sendmail-program <span class="org-string">"/usr/local/bin/msmtp"</span>
+          user-full-name <span class="org-string">"Nan Zhong"</span>)
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Use the correct account context when sending mail based on the from header.</span>
+    (<span class="org-keyword">setq</span> message-sendmail-envelope-from 'header)
+    (add-hook 'message-send-mail-hook 'choose-msmtp-account)
+
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">Bookmarks for common searches that I use.</span>
+    (<span class="org-keyword">setq</span> mu4e-bookmarks '((<span class="org-string">"\\\\Inbox"</span> <span class="org-string">"Inbox"</span> ?i)
+                           (<span class="org-string">"flag:unread"</span> <span class="org-string">"Unread messages"</span> ?u)
+                           (<span class="org-string">"date:today..now"</span> <span class="org-string">"Today's messages"</span> ?t)
+                           (<span class="org-string">"date:7d..now"</span> <span class="org-string">"Last 7 days"</span> ?w)
+                           (<span class="org-string">"mime:image/*"</span> <span class="org-string">"Messages with images"</span> ?p))))
+</pre>
+</div>
+
+<p>
+You're all done! <code>M-x mu4e</code> and off you go! I won't go into how to actually use mu4e because there is simply too much to cover and the official-manual]] does a much better job.
+</p>
+
+<p>
+Hopefully this has been helpful to you. :)
+</p>
+
+
+<div id="orgc1843a2" class="figure">
+<p><img src="mu4e.png" alt="mu4e.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="nanzhong/nanzho.ng"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTcxMjYwMTE="
+          data-category="Comments"
+          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-theme="transparent_dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+    </main>
+
+    
+    <footer>
+      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
+    </footer>
+    
+  </body>
+</html>

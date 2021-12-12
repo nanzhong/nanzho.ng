@@ -1,0 +1,7 @@
+{
+  "origins": ["https://nanzho.ng"],
+  "originsRegex": [
+    "https?://localhost:[0-9]+",
+    "https?://dev\\.nanzho\\.ng:[0-9]+"
+  ]
+}

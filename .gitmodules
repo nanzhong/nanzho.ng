@@ -1,3 +1,4 @@
 [submodule "org"]
 	path = org
 	url = git@github.com:nanzhong/org.git
+	branch = main

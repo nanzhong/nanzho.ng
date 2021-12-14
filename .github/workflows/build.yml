@@ -17,12 +17,12 @@ jobs:
         with:
           submodules: true
           ssh-key: ${{ secrets.ORG_DEPLOY_KEY }}
+          fetch-depth: 0
 
       - name: Restore org mtime
         run: |
           sudo apt-get -y install git-restore-mtime
           cd org
-          git fetch
           git restore-mtime
 
       - name: Set up docker buildx

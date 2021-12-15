@@ -143,6 +143,17 @@ main {
             font-weight: bold;
         }
 
+        ul {
+            list-style-type: none;
+
+            li {
+                &::before {
+                    color: #63696d;
+                    content: "- "
+                }
+            }
+        }
+
         img {
             padding: 5px;
             margin: 0 auto;

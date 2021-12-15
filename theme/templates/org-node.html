@@ -12,30 +12,32 @@
 {% endblock %}
 
 {% block main %}
-<h1 class="title">{{ node.title }}</h1>
-<div class="meta">
-  <span class="mtime">{{ node.mtime | strftime("%Y-%m-%d") }}</span>
-  <ul class="filetags">
-    {% for tag in node.tags %}
-    <li>{{ tag }}</li>
-    {% endfor %}
-  </ul>
+<div class="content">
+  <h1 class="title">{{ node.title }}</h1>
+  <div class="meta">
+    <span class="mtime">{{ node.mtime | strftime("%Y-%m-%d") }}</span>
+    <ul class="filetags">
+      {% for tag in node.tags %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {{ node.html | safe }}
+
+  {% if node.backlinks %}
+  <section class="org-roam-backlinks">
+    <h2>Backlinks</h2>
+    <ul>
+      {% for link in node.backlinks %}
+      <li>
+        <a href="{{ url_for("org-nodes", slug=link.slug) }}">{{ link.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 </div>
-
-{{ node.html | safe }}
-
-{% if node.backlinks %}
-<section class="org-roam-backlinks">
-  <h2>Backlinks</h2>
-  <ul>
-    {% for link in node.backlinks %}
-    <li>
-      <a href="{{ url_for("org-nodes", slug=link.slug) }}">{{ link.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
 
 <div class="comments">
   <script src="https://giscus.app/client.js"

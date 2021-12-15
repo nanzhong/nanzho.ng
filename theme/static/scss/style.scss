@@ -143,35 +143,6 @@ main {
             font-weight: bold;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-
-            li {
-                &::before {
-                    color: #63696d;
-                    content: "- "
-                }
-
-                ul, ol {
-                    margin-left: 10px;
-                }
-            }
-        }
-
-        ol {
-            margin: 0;
-            padding: 0;
-            list-style-position: inside;
-
-            li {
-                ul, ol {
-                    margin-left: 10px;
-                }
-            }
-        }
-
         img {
             padding: 5px;
             margin: 0 auto;
@@ -197,6 +168,16 @@ main {
         .highlight {
             margin: 5px 0;
             border: 1px solid #343A40;
+        }
+
+        .todo.TODO, .todo.BLOCKED, .todo.REVIEW {
+            font-weight: bold;
+            color: #ffcf6d;
+        }
+
+        .todo.DONE, .todo.REJECTED {
+            font-weight: bold;
+            color: #b0de7f;
         }
 
         div.meta {

@@ -3,14 +3,14 @@
 {% block title %}{{ title }} - Posts{% endblock %}
 
 {% block main %}
-<h1 class="title">All Posts</h1>
-<ul>
-  {% for post in posts %}
-  <li>
-    [{{ post.date | strftime("%Y-%m-%d") }}] <a href="{{ url_for("posts", slug=post.slug) }}">{{ post.title }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<div class="content">
+  <h1 class="title">All Posts</h1>
+  <ul>
+    {% for post in posts %}
+    <li>
+      [{{ post.date | strftime("%Y-%m-%d") }}] <a href="{{ url_for("posts", slug=post.slug) }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}
-
-

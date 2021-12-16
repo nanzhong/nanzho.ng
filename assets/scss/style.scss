@@ -143,17 +143,6 @@ main {
             font-weight: bold;
         }
 
-        ul {
-            list-style-type: none;
-
-            li {
-                &::before {
-                    color: #63696d;
-                    content: "- "
-                }
-            }
-        }
-
         img {
             padding: 5px;
             margin: 0 auto;
@@ -218,6 +207,7 @@ main {
                 width: 100%;
                 display: flex;
                 list-style-type: none;
+                margin: 0;
 
                 &::before {
                     position: absolute;

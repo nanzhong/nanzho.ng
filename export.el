@@ -19,9 +19,7 @@
                                           (("name" . "org")
                                            ("url" . "/org/"))
                                           (("name" . "posts")
-                                           ("url" . "/posts/"))
-                                          (("name" . "about")
-                                           ("url" . "/about/"))))
+                                           ("url" . "/posts/"))))
                                ("projects" . (("personal" . ((("name" . "nanzhong/env")
                                                               ("desc" . "My declarative environments")
                                                               ("url" . "https://github.com/nanzhong/workstation"))
@@ -45,35 +43,14 @@
                                ("gtm_container" . "GTM-KWMNL2X"))))
        (org-roam-nodes-filter (lambda (node)
                                 (member "publish" (org-roam-node-tags node)))))
-  (weblorg-route
-   :name "index"
-   ;; This is hack at the moment and works because the result of
-   ;; :input-aggregate is directly returned. This should be reworked to make use
-   ;; of :input-source, but the way the posts pipeline currently works makes it
-   ;; hard to re-use the existing parts of the pipeline without changes.
-   :input-pattern "posts/**/*.org"
-   :input-aggregate (lambda (posts)
-                      (let* ((agg-posts (weblorg-input-aggregate-all-desc posts))
-                             (posts (cdr (assoc "posts" (car agg-posts))))
-                             (org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
-                                                                  org-roam-nodes-filter
-                                                                  (lambda (a b)
-                                                                    (time-less-p (org-roam-node-file-mtime b)
-                                                                                 (org-roam-node-file-mtime a)))
-                                                                  5))))))
-                        `((("posts" . ,(butlast posts (- (length posts) 5)))
-                           ("nodes" . ,org-nodes)))))
-   :template "index.html"
-   :output "output/index.html"
-   :url "/"
-   :site site)
-  (weblorg-route
-   :name "pages"
-   :input-pattern "pages/*.org"
-   :template "page.html"
-   :output "output/{{ slug }}/index.html"
-   :url "/{{ slug }}/"
-   :site site)
+  ;; Temporarily disabled until I have an actual "page"...
+  ;; (weblorg-route
+  ;;  :name "pages"
+  ;;  :input-pattern "pages/*.org"
+  ;;  :template "page.html"
+  ;;  :output "output/{{ slug }}/index.html"
+  ;;  :url "/{{ slug }}/"
+  ;;  :site site)
   (weblorg-route
    :name "posts"
    :input-pattern "posts/**/*.org"
@@ -102,6 +79,25 @@
    :template "org-node.html"
    :output "output/org/{{ slug }}/index.html"
    :url "/org/{{ slug }}/"
+   :site site)
+  (weblorg-route
+   :name "index"
+   :input-source (lambda ()
+                   (let* ((about (weblorg--parse-org-file "index.org"))
+                          (posts (weblorg--route-posts (weblorg--site-route site "posts-list")))
+                          (posts (cdr (assoc "posts" (car posts))))
+                          (org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
+                                                               org-roam-nodes-filter
+                                                               (lambda (a b)
+                                                                 (time-less-p (org-roam-node-file-mtime b)
+                                                                              (org-roam-node-file-mtime a)))
+                                                               5))))))
+                     `((("about" . ,about)
+                        ("posts" . ,(butlast posts (- (length posts) 5)))
+                        ("nodes" . ,org-nodes)))))
+   :template "index.html"
+   :output "output/index.html"
+   :url "/"
    :site site)
   (weblorg-copy-static
    :output "output/assets/{{ file }}"

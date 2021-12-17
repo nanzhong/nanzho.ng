@@ -2,8 +2,20 @@
 
 {% block title %}{{ title }} - {{ name }}{% endblock %}
 
+{% block og %}
+<meta name="og:title" content="{{ about.title }}"></meta>
+<meta name="og:url" content="{{ url_for("index") }}"></meta>
+{% endblock %}
+
+{% block twitter %}
+<meta name="twitter:title" content="{{ about.title }}"></meta>
+{% endblock %}
+
 {% block main %}
 <div class="content">
+  <h1 class="title">{{ about.title }}</h1>
+  {{ about.html | safe}}
+
   <h1>Recent Posts</h1>
   <ul>
     {% for post in posts %}

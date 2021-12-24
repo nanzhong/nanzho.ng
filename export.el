@@ -82,19 +82,17 @@
    :site site)
   (weblorg-route
    :name "index"
-   :input-source (lambda ()
-                   (let* ((about (weblorg--parse-org-file "index.org"))
-                          (posts (weblorg--route-posts (weblorg--site-route site "posts-list")))
-                          (posts (cdr (assoc "posts" (car posts))))
-                          (org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
-                                                               org-roam-nodes-filter
-                                                               (lambda (a b)
-                                                                 (time-less-p (org-roam-node-file-mtime b)
-                                                                              (org-roam-node-file-mtime a)))
-                                                               5))))))
-                     `((("about" . ,about)
-                        ("posts" . ,(butlast posts (- (length posts) 5)))
-                        ("nodes" . ,org-nodes)))))
+   :input-pattern "index.org"
+   :template-vars (let* ((posts (weblorg--route-posts (weblorg--site-route site "posts-list")))
+                         (posts (cdr (assoc "posts" (car posts))))
+                         (org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
+                                                              org-roam-nodes-filter
+                                                              (lambda (a b)
+                                                                (time-less-p (org-roam-node-file-mtime b)
+                                                                             (org-roam-node-file-mtime a)))
+                                                              5))))))
+                    `(("posts" . ,(butlast posts (- (length posts) 5)))
+                      ("nodes" . ,org-nodes)))
    :template "index.html"
    :output "output/index.html"
    :url "/"

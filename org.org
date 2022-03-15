@@ -1,0 +1,5 @@
+#+title: Org Notes
+#+slug: org
+#+options: toc:nil num:nil
+
+I've found that taking notes helps me remember things and organize my thoughts. Some of my notes are on common topics, and I've always wondered whether they might be helpful to others. The following is that subset of notes.

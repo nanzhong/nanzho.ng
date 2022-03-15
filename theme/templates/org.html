@@ -4,7 +4,9 @@
 
 {% block main %}
 <div class="content">
-  <h1 class="title">All Notes</h1>
+  <h1 class="title">{{ post.title }}</h1>
+  {{ post.html | safe}}
+
   <ul>
     {% for node in nodes %}
     <li>

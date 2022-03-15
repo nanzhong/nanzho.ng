@@ -68,7 +68,10 @@
    :site site)
   (weblorg-route
    :name "org"
-   :input-source (lambda () (weblorg-input-source-org-roam-nodes-agg org-roam-nodes-filter))
+   :input-pattern "org.org"
+   :template-vars (let* ((org-nodes (cdr (assoc "nodes" (car (weblorg-input-source-org-roam-nodes-agg
+                                                              org-roam-nodes-filter))))))
+                    `(("nodes" . ,org-nodes)))
    :template "org.html"
    :output "output/org/index.html"
    :url "/org"

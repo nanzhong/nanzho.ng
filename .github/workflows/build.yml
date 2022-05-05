@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           push: true
@@ -44,7 +44,7 @@ jobs:
           cache-to: type=registry,ref=nanzhong/nanzho.ng:build-cache,mode=max
 
       - name: Build and save
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           tags: nanzhong/nanzho.ng:latest,nanzhong/nanzho.ng:${{ github.sha }}

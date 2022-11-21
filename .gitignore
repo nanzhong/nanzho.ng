@@ -2,6 +2,9 @@ org-id-locations
 org-roam.db
 output
 
+theme/static/css/style.css
+theme/static/css/style.css.map
+
 .emacs/*
 !.emacs/straight
 .emacs/straight/*

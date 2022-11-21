@@ -26,6 +26,7 @@
         });
 
         deps = with pkgs; [
+          caddy
           emacs
           fish
           git

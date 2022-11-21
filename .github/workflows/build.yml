@@ -52,7 +52,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: /tmp
+          path: /tmp/output
 
       - name: Setup git user
         run: |

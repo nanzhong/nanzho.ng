@@ -31,7 +31,7 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Build site
-        run: nix develop -c script/build.sh
+        run: nix develop -c scripts/build.sh
 
       - name: Upload built site
         uses: actions/upload-artifact@v3

@@ -2,12 +2,12 @@
 #+slug: index
 #+options: toc:nil num:nil
 
-I'm a software engineer at [[https://digitalocean.com][DigitalOcean]], I've worked all across the stack, but ultimately my passion lies in building distributed systems and tools that enable developers to be more productive.
+I'm a principal software engineer at [[https://digitalocean.com][DigitalOcean]]. I've worked all across the stack, on customer facing products to internal facing platforms, but ultimately my passion lies in building tools that delight developers and enable them to be more productive.
 
 When I'm not in front of my computer, you will most likely find me behind my camera.
 
 * Contact
-- email :: [[mailto:me@nanzho.ng][me@nanzho.ng]]
+- Email :: [[mailto:me@nanzho.ng][me@nanzho.ng]]
 - GitHub :: [[https://github.com/nanzhong][@nanzhong]]
 - Twitter :: [[https://twitter.com/nanzhong][@nanzhong]]
 - LinkedIn :: [[https://www.linkedin.com/in/nine27/][Nan Zhong]]

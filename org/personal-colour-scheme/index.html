@@ -79,7 +79,7 @@
 <div class="content">
   <h1 class="title">Personal Colour Scheme</h1>
   <div class="meta">
-    <span class="mtime">2021-12-15</span>
+    <span class="mtime">2022-11-23</span>
     <ul class="filetags">
       
       <li>publish</li>
@@ -93,10 +93,8 @@
 <h1>Table of Contents</h1>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#common">Common</a></li>
-<li><a href="#syntax">Syntax</a></li>
-<li><a href="#vcs">VCS</a></li>
-<li><a href="#ui">UI</a></li>
+<li><a href="#grey-scale">Grey Scale</a></li>
+<li><a href="#base-colours">Base Colours</a></li>
 </ul>
 </div>
 </div>
@@ -104,68 +102,38 @@
 Consistent set of colours to use across all tools.
 </p>
 
-<p>
-Derived from <a href="/org/copic-colour-system/">copic colours</a>.
-</p>
-
-<div id="outline-container-common" class="outline-1">
-<h1 id="common">Common</h1>
+<div id="outline-container-grey-scale" class="outline-1">
+<h1 id="grey-scale">Grey Scale</h1>
 <div class="outline-text-1">
 <pre class="example">
-Accent               #FF9940 #FFCC66 #E6B450
-Background           #FAFAFA #1F2430 #0A0E14
-Foreground           #6C7680 #E9E9E9 #E2E2E2
-UI                   #959DA6 #707A8C #3D424D
+black #000000
+white #ffffff
+
+bg    #161a1d
+bg+   #1e2529
+bg++  #272f35
+bg+++ #303a41
+
+fg   #e2e6e9
+fg-   #a7b4be
+fg--  #6c8393
+fg--- #414e58
 </pre>
 </div>
 </div>
 
-<div id="outline-container-syntax" class="outline-1">
-<h1 id="syntax">Syntax</h1>
+<div id="outline-container-base-colours" class="outline-1">
+<h1 id="base-colours">Base Colours</h1>
 <div class="outline-text-1">
 <pre class="example">
-Tag                  #55B4D4 #5CCFE6 #39BAE6
-Func                 #F2AE49 #FFD580 #FFB454
-Entity               #399EE6 #73D0FF #59C2FF
-String               #86B300 #BAE67E #C2D94C
-Regexp               #4CBF99 #95E6CB #95E6CB
-Markup               #F07171 #F28779 #F0717B
-Keyword              #FA8D3E #FFA759 #FF8F40
-Special              #E6BA7E #FFE6B3 #E6B673
-Comment              #ABB0B6 #5C6773 #626A73
-Constant             #A37ACC #D4BFFF #FFEE99
-Operator             #ED9366 #F29E74 #F29668
-Error                #F51818 #FF3333 #FF3333
-</pre>
-</div>
-</div>
-
-<div id="outline-container-vcs" class="outline-1">
-<h1 id="vcs">VCS</h1>
-<div class="outline-text-1">
-<pre class="example">
-Addition             #99BF4D #A6CC70 #91B362
-Modification         #709ECC #77A8D9 #6994BF
-Removal              #F27983 #F27983 #D96C75
-</pre>
-</div>
-</div>
-
-<div id="outline-container-ui" class="outline-1">
-<h1 id="ui">UI</h1>
-<div class="outline-text-1">
-<pre class="example">
-Line                 #959DA6 #191e2a #01060E
-Panel - bg           #FFFFFF #232834 #0D1016
-Panel - shadow       #566069 #141925 #00010A
-Panel - border       #F0F0F0 #101521 #000000
-Gutter - normal      #959DA6 #70768C #3D424D
-Gutter - active      #959DA6 #70768C #3D424D
-Guide - active       #959DA6 #70768C #3D424D
-Guide - normal       #959DA6 #70768C #3D424D
-Selection - bg       #D3E5F4 #33415E #273747
-Selection - inactive #E9E9E9 #323A4C #1B2733
-Selection - border   #E2E2E2 #323A4C #304357
+base_0 #ed6a5e | base_0_bright #f66355
+base_1 #ed8e5e | base_1_bright #f68b55
+base_2 #edd55e | base_2_bright #f6db55
+base_3 #b2ed5e | base_4_bright #b3f655
+base_4 #5ebeed | base_4_bright #55c1f6
+base_5 #5e76ed | base_5_bright #5570f6
+base_6 #8e5eed | base_6_bright #8b55f6
+base_7 #ed5ea6 | base_7_bright #f655a6
 </pre>
 
 <script>
@@ -209,7 +177,7 @@ for (const parent of document.querySelectorAll("main pre")) {
 
     
     <footer>
-      Copyright © 2021 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
+      Copyright © 2022 Nan Zhong - ☺ Have a nice day!<br>All content on this site reflect my own personal opinions.
     </footer>
     
   </body>

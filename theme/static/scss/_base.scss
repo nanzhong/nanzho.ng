@@ -1,11 +1,11 @@
 html {
-    background-color: #171A1C;
+    background-color: $bg;
 }
 
 * {
     box-sizing: border-box;
     font-family: 'Iosevka Custom', monospace;
-    color: #d9e0e4;
+    color: $fg;
 }
 
 body, p, h1, h2, h3, h4, h5, h6, pre, code {
@@ -29,7 +29,7 @@ p {
 }
 
 a {
-    color: #afce15;
+    color: $base-4;
 }
 
 ul, ol {

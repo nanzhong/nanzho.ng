@@ -1,3 +1,4 @@
+@import 'colours';
 @import 'base';
 @import 'font';
 
@@ -18,7 +19,7 @@ header {
     margin-top: 25px;
     margin-bottom: 10px;
     padding: 10px 0;
-    border-bottom: 1px solid #fff500;
+    border-bottom: 1px solid $base-2;
 
     @media (min-width: 576px) {
         margin-top: 50px;
@@ -39,14 +40,14 @@ header {
             margin: 0;
 
             a {
-                color: #93c560;
+                color: $base-3;
                 font-weight: bold;
                 text-decoration: none;
             }
         }
 
         li.prompt {
-            color: #ffffff;
+            color: $white;
         }
 
         li::after {
@@ -65,7 +66,7 @@ header {
     }
 
     .comment {
-        color: #a4aeb2;
+        color: $fg-2;
     }
 }
 
@@ -92,7 +93,7 @@ main {
             padding-right: 3px;
             text-align: right;
             font-weight: normal;
-            color: #63696d;
+            color: $fg-1;
 
             @media (min-width: 576px) {
                 padding-right: 10px;
@@ -147,37 +148,37 @@ main {
             padding: 5px;
             margin: 0 auto;
             max-width: 100%;
-            background-color: #1C1F22;
-            border: 1px solid #343A40;
+            background-color: $bg-1;
+            border: 1px solid $bg-3;
         }
 
         blockquote {
-            background-color: #1C1F22;
+            background-color: $bg-1;
             margin: 0;
             padding: 5px 5px 5px 20px;
-            border-left: 5px solid #343A40;
+            border-left: 5px solid $bg-3;
         }
 
         pre {
-            background-color: #1C1F22;
+            background-color: $bg-1;
             margin: 0;
             padding: 5px 5px 5px 20px;
-            border-left: 5px solid #343A40;
+            border-left: 5px solid $bg-3;
         }
 
         .highlight {
             margin: 5px 0;
-            border: 1px solid #343A40;
+            border: 1px solid $bg-3;
         }
 
         .todo.TODO, .todo.BLOCKED, .todo.REVIEW {
             font-weight: bold;
-            color: #ffcf6d;
+            color: $base-2;
         }
 
         .todo.DONE, .todo.REJECTED {
             font-weight: bold;
-            color: #b0de7f;
+            color: $base-3;
         }
 
         div.meta {
@@ -185,14 +186,14 @@ main {
 
             span.mtime {
                 display: block;
-                color: #63696d;
+                color: $fg-1;
 
                 &::before {
                     position: absolute;
                     box-sizing: border-box;
                     padding-right: 3px;
                     text-align: right;
-                    color: #63696d;
+                    color: $fg-1;
                     width: 150px;
                     left: -150px;
                     content: '#+mtime:';
@@ -214,7 +215,7 @@ main {
                     box-sizing: border-box;
                     padding-right: 3px;
                     text-align: right;
-                    color: #63696d;
+                    color: $fg-1;
                     width: 150px;
                     left: -150px;
                     content: '#+filetags:';
@@ -225,7 +226,7 @@ main {
                 }
 
                 li {
-                    color: #63696d;
+                    color: $fg-1;
 
                     &::before {
                         content: ':';
@@ -238,7 +239,7 @@ main {
                     }
 
                     a {
-                        color: #63696d;
+                        color: $fg-1;
                     }
                 }
             }
@@ -249,12 +250,12 @@ main {
 
             @media (min-width: 576px) {
                 display: block;
-                background-color: #1C1F22;
+                background-color: $bg-1;
                 float: right;
                 margin-left: 10px;
                 margin-bottom: 10px;
                 padding: 0 10px 0 10px;
-                border-left: 5px solid #343A40;
+                border-left: 5px solid $bg-2;
                 font-size: 70%;
 
                 h1 {
@@ -274,10 +275,10 @@ main {
         }
 
         div.org-src-container {
-            background-color: #1C1F22;
+            background-color: $bg-1;
             overflow-x: scroll;
             padding: 5px 5px 5px 20px;
-            border-left: 5px solid #343A40;
+            border-left: 5px solid $bg-3;
 
             pre {
                 font-family: 'Iosevka Custom', monospace;
@@ -288,22 +289,22 @@ main {
         section.org-roam-backlinks {
             padding: 10px 0;
             margin: 20px 0;
-            border-top: 1px solid #D4BFFF;
+            border-top: 1px solid $base-6;
         }
     }
 
     .comments {
         margin-top: 20px;
-        border-top: 1px solid #80cde7;
+        border-top: 1px solid $base-7;
         padding: 20px 0 0 0;
     }
 }
 
 
 footer {
-    color: #a4aeb2;
+    color: $fg-1;
     margin-top: 10px;
     margin-bottom: 25px;
     padding: 10px 0;
-    border-top: 1px solid #fff500;
+    border-top: 1px solid $base-2;
 }

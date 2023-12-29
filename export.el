@@ -38,9 +38,7 @@
                               ;; Social
                               ("twitter" . "nanzhong")
                               ("github" . "nanzhong")
-                              ("email" . "me@nanzho.ng")
-                              ;; Integrations
-                              ("gtm_container" . "GTM-KWMNL2X"))))
+                              ("email" . "me@nanzho.ng"))))
       (org-roam-nodes-filter (lambda (node)
                                (member "publish" (org-roam-node-tags node)))))
   ;; Temporarily disabled until I have an actual "page"...

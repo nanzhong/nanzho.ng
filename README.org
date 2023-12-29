@@ -1,0 +1,5 @@
+* [[https://nanzho.ng][nanzho.ng]]
+This repository holds my personal site. It makes use of [[https://github.com/emacs-love/weblorg][emacs-love/weblorg]] to generate a static site from pages and blog posts written as org-mode files (and includes a brain dump from my org-roam notes).
+
+** Dependencies
+All dependencies needed are included in the dev shell from the included nix flake. Direnv can be used to streamline the process of getting into the dev shell.

@@ -8,41 +8,41 @@
 (setq weblorg-default-url (let ((base-url (getenv "BASE_URL")))
                             (if (string= base-url "") "http://localhost:8080" base-url)))
 
-(let* ((site (weblorg-site
-              :base-url weblorg-default-url
-              :default-route "org-nodes"
-              :theme nil
-              :template-vars '(("title" . "nanzho.ng")
-                               ("name" . "Nan Zhong")
-                               ("menu" . ((("name" . "nanzho.ng")
-                                           ("url" . "/"))
-                                          (("name" . "org")
-                                           ("url" . "/org/"))
-                                          (("name" . "posts")
-                                           ("url" . "/posts/"))))
-                               ("projects" . (("personal" . ((("name" . "nanzhong/env")
-                                                              ("desc" . "My declarative environments")
-                                                              ("url" . "https://github.com/nanzhong/workstation"))
-                                                             (("name" . "nanzhong/tester")
-                                                              ("desc" . "Test runner and reporting framework")
-                                                              ("url" . "https://github.com/nanzhong/tester"))
-                                                             (("name" . "nanzhong/oktaauth")
-                                                              ("desc" . "net/http compatible drop in Okta auth handler")
-                                                              ("url" . "https://github.com/nanzhong/oktaauth"))))
-                                              ("professional" . ((("name" . "DigitalOcean App Platform")
-                                                                  ("desc" . "Opinionated PaaS")
-                                                                  ("url". "https://www.digitalocean.com/docs/app-platform/"))
-                                                                 (("name" . "DigitalOcean Kubernetes Service")
-                                                                  ("desc" . "Managed kubernetes product")
-                                                                  ("url" . "https://www.digitalocean.com/docs/kubernetes/"))))))
-                               ;; Social
-                               ("twitter" . "nanzhong")
-                               ("github" . "nanzhong")
-                               ("email" . "me@nanzho.ng")
-                               ;; Integrations
-                               ("gtm_container" . "GTM-KWMNL2X"))))
-       (org-roam-nodes-filter (lambda (node)
-                                (member "publish" (org-roam-node-tags node)))))
+(let ((site (weblorg-site
+             :base-url weblorg-default-url
+             :default-route "org-nodes"
+             :theme nil
+             :template-vars '(("title" . "nanzho.ng")
+                              ("name" . "Nan Zhong")
+                              ("menu" . ((("name" . "nanzho.ng")
+                                          ("url" . "/"))
+                                         (("name" . "org")
+                                          ("url" . "/org/"))
+                                         (("name" . "posts")
+                                          ("url" . "/posts/"))))
+                              ("projects" . (("personal" . ((("name" . "nanzhong/env")
+                                                             ("desc" . "My declarative environments")
+                                                             ("url" . "https://github.com/nanzhong/workstation"))
+                                                            (("name" . "nanzhong/tester")
+                                                             ("desc" . "Test runner and reporting framework")
+                                                             ("url" . "https://github.com/nanzhong/tester"))
+                                                            (("name" . "nanzhong/oktaauth")
+                                                             ("desc" . "net/http compatible drop in Okta auth handler")
+                                                             ("url" . "https://github.com/nanzhong/oktaauth"))))
+                                             ("professional" . ((("name" . "DigitalOcean App Platform")
+                                                                 ("desc" . "Opinionated PaaS")
+                                                                 ("url". "https://www.digitalocean.com/docs/app-platform/"))
+                                                                (("name" . "DigitalOcean Kubernetes Service")
+                                                                 ("desc" . "Managed kubernetes product")
+                                                                 ("url" . "https://www.digitalocean.com/docs/kubernetes/"))))))
+                              ;; Social
+                              ("twitter" . "nanzhong")
+                              ("github" . "nanzhong")
+                              ("email" . "me@nanzho.ng")
+                              ;; Integrations
+                              ("gtm_container" . "GTM-KWMNL2X"))))
+      (org-roam-nodes-filter (lambda (node)
+                               (member "publish" (org-roam-node-tags node)))))
   ;; Temporarily disabled until I have an actual "page"...
   ;; (weblorg-route
   ;;  :name "pages"

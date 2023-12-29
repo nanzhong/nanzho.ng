@@ -36,26 +36,11 @@
 <meta name="twitter:title" content="Better Email with mu4e"></meta>
 
 
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KWMNL2X');</script>
-    <!-- End Google Tag Manager -->
-    
+    <script async src="https://us.umami.is/script.js" data-website-id="1294dd56-b636-4ac7-8082-63948b3bcb18"></script>
   </head>
   
 
   <body>
-    
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWMNL2X"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-
     
     <header>
       <nav>
@@ -109,7 +94,6 @@ When the amount of email you receive starts to encroach on unmanageable territor
 <p>
 Checking email in a browser is a <b><b>huge</b></b> distraction. I spend most of my day staring at emacs, and when email notifications ding, I feel compelled to check; switching to the completely browser pulls me out of my flow. Once you're in the browser, you realize that you are on a slippery slope&#x2026; It starts tempting you to check <a href="https://news.ycombinator.com">hacker news</a> or <a href="https://reddit.com">reddit</a> (at least for me), and often times it's impossible to not succumb to it; we all know how easily time goes missing "just checking if anything new popped up on the front-page".
 </p>
-
 <div id="outline-container-mu4e" class="outline-1">
 <h1 id="mu4e">mu4e</h1>
 <div class="outline-text-1">
@@ -142,7 +126,6 @@ Getting mu4e up and running is not a difficult task, but it's definitely more wo
 My email setup consists of 2 gmail accounts, one personal and one for work, both of which are on Google Apps and secured via two-factor auth. The steps below are also tailored to macOS. If your setup is different, much of the following should still be relevant with a few tweaks.
 </p>
 </div>
-
 <div id="outline-container-syncing-email" class="outline-2">
 <h2 id="syncing-email">Syncing Email</h2>
 <div class="outline-text-2">
@@ -150,7 +133,6 @@ My email setup consists of 2 gmail accounts, one personal and one for work, both
 mu4e/mu works off of a <a href="https://en.wikipedia.org/wiki/Maildir">maildir</a>, so the first step is to actually get your email accounts setup to sync with your local maildir. It feels a little weird to be storing copies of your email locally in this day and age, but one often overlooked advantage to this is that you always have full access to your historical email (eg. when you don't have internet access). I also use my phone to check my email, so being able to sync email state between devices is a must; this rules out using POP and leaves me with IMAP. There are a number of applications that can be used for this: <a href="http://www.offlineimap.org/">offlineimap</a>, <a href="http://isync.sourceforge.net/">mbsync</a>, and others. I personally use offlineimap because it seems to offer the most documentation and exaples, and it seems to be the only one that supports XOAUTH2 which is the preferred way to access gmail accounts.
 </p>
 </div>
-
 <div id="outline-container-gmail-special-snowflake" class="outline-3">
 <h3 id="gmail-special-snowflake">gmail - Special Snowflake</h3>
 <div class="outline-text-3">
@@ -167,7 +149,6 @@ The following assumes this approach.
 </p>
 </div>
 </div>
-
 <div id="outline-container-offlineimap" class="outline-3">
 <h3 id="offlineimap">offlineimap</h3>
 <div class="outline-text-3">
@@ -359,7 +340,7 @@ In my configuration I've set up postsync hooks for my accounts so that I can be 
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Count new mail for every maildir</span>
 <span class="org-variable-name">maildirnew</span>=<span class="org-string">"$HOME/.mail/nine27/*/new"</span>
-<span class="org-variable-name">new</span>=<span class="org-string">"$(</span><span class="org-sh-quoted-exec">find $maildirnew -type f | grep -v Gmail | wc -l | sed 's/ //g'</span><span class="org-string">)"</span>
+<span class="org-variable-name">new</span>=<span class="org-string">"$(find $maildirnew -type f | grep -v Gmail | wc -l | sed 's/ //g')"</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Notify me via a notification</span>
 <span class="org-keyword">if</span> [ $<span class="org-variable-name">new</span> -gt 0 ]
@@ -372,7 +353,6 @@ In my configuration I've set up postsync hooks for my accounts so that I can be 
 </div>
 </div>
 </div>
-
 <div id="outline-container-sending-email" class="outline-1">
 <h1 id="sending-email">Sending Email</h1>
 <div class="outline-text-1">
@@ -433,7 +413,6 @@ And that's it! A nice thing about accessing your mail via a local maildir and se
 </p>
 </div>
 </div>
-
 <div id="outline-container-putting-it-all-together-with-mu4e" class="outline-1">
 <h1 id="putting-it-all-together-with-mu4e">Putting it All Together with mu4e</h1>
 <div class="outline-text-1">
@@ -454,9 +433,10 @@ Now that both receiving and sending email has been configured, we can put it all
 The first thing you will want to do is index your email
 </p>
 
-<pre class="example">
-mu index -m ~/.mail
+<div class="org-src-container">
+<pre class="src src-nil">mu index -m ~/.mail
 </pre>
+</div>
 
 <p>
 mu is pretty fast at doing this, but this might still take some time depending on how much email you have.
@@ -594,7 +574,7 @@ Hopefully this has been helpful to you. :)
 </p>
 
 
-<div id="org6008347" class="figure">
+<div id="org747ec2d" class="figure">
 <p><img src="mu4e.png" alt="mu4e.png" />
 </p>
 </div>
@@ -610,6 +590,7 @@ Hopefully this has been helpful to you. :)
           data-category="Comments"
           data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNjAxMjc3"
           data-mapping="title"
+          data-strict="1"
           data-reactions-enabled="1"
           data-emit-metadata="0"
           data-theme="transparent_dark"

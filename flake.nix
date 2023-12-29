@@ -18,12 +18,8 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           caddy
+          dart-sass
           emacs
-          fish
-          git
-          nginx
-          nodejs
-          nodePackages.sass
         ];
       };
     });
